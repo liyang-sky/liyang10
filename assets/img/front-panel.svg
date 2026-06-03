@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 220" role="img" aria-label="BVM-HX3110 鍓嶉潰鏉挎寜閿竷灞€绀烘剰">
+    <defs>
+        <linearGradient id="bezel" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#2a2a2a"/>
+            <stop offset="100%" stop-color="#0d0d0d"/>
+        </linearGradient>
+        <linearGradient id="btn" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#3a3f47"/>
+            <stop offset="100%" stop-color="#1d2128"/>
+        </linearGradient>
+    </defs>
+    <!-- 鐩戣鍣ㄥ墠妗?-->
+    <rect x="20" y="20" width="560" height="180" rx="10" fill="url(#bezel)" stroke="#444" stroke-width="1"/>
+    <!-- 灞忓箷鍗犱綅 -->
+    <rect x="36" y="36" width="380" height="148" rx="4" fill="#0a0d12" stroke="#2a3038"/>
+    <text x="226" y="115" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="13" fill="#3aa0ff" opacity="0.9">4K 路 HDR</text>
+    <!-- 宸︿晶 logo 鍖?-->
+    <text x="48" y="200" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10" fill="#888">SONY</text>
+    <text x="48" y="50" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10" fill="#666">BVM-HX3110</text>
+
+    <!-- 鎸夐敭鍖?-->
+    <g font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9" fill="#cfd6df" text-anchor="middle">
+        <!-- 鐢垫簮 -->
+        <rect x="436" y="36" width="36" height="22" rx="4" fill="url(#btn)"/>
+        <text x="454" y="51">POWER</text>
+
+        <!-- 鑿滃崟閿?-->
+        <rect x="436" y="68" width="36" height="22" rx="4" fill="url(#btn)"/>
+        <text x="454" y="83">MENU</text>
+
+        <!-- 鏃嬮挳 -->
+        <circle cx="500" cy="79" r="20" fill="url(#btn)" stroke="#444"/>
+        <circle cx="500" cy="79" r="6" fill="#0d1116"/>
+        <text x="500" y="116">JOG</text>
+
+        <!-- 杈撳叆閫夋嫨 -->
+        <rect x="540" y="36" width="36" height="22" rx="4" fill="url(#btn)"/>
+        <text x="568" y="51">IN-A</text>
+        <rect x="540" y="62" width="36" height="22" rx="4" fill="url(#btn)"/>
+        <text x="568" y="77">IN-B</text>
+        <rect x="540" y="88" width="36" height="22" rx="4" fill="url(#btn)"/>
+        <text x="568" y="103">IP</text>
+        <rect x="540" y="114" width="36" height="22" rx="4" fill="url(#btn)"/>
+        <text x="568" y="129">HDMI</text>
+        <rect x="540" y="140" width="36" height="22" rx="4" fill="url(#btn)"/>
+        <text x="568" y="155">DP</text>
+
+        <!-- 鍔熻兘閿?-->
+        <rect x="436" y="100" width="36" height="22" rx="4" fill="url(#btn)"/>
+        <text x="454" y="115">F1</text>
+        <rect x="436" y="126" width="36" height="22" rx="4" fill="url(#btn)"/>
+        <text x="454" y="141">F2</text>
+        <rect x="436" y="152" width="36" height="22" rx="4" fill="url(#btn)"/>
+        <text x="454" y="167">F3</text>
+    </g>
+
+    <!-- 鏍囨敞绾?-->
+    <g stroke="#3aa0ff" stroke-width="1" fill="none" opacity="0.7">
+        <line x1="490" y1="79" x2="500" y2="190"/>
+        <line x1="560" y1="100" x2="590" y2="190"/>
+    </g>
+    <g font-family="sans-serif" font-size="10" fill="#3aa0ff">
+        <text x="480" y="204">鏃嬮挳</text>
+        <text x="582" y="204">杈撳叆閿?/text>
+    </g>
+</svg>

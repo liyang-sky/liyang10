@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 180" role="img" aria-label="IP ST 2110 鎺ョ嚎绀烘剰">
+    <defs>
+        <linearGradient id="dev2" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#1f242c"/>
+            <stop offset="100%" stop-color="#0e1116"/>
+        </linearGradient>
+    </defs>
+    <!-- IP 浜ゆ崲鏈?-->
+    <rect x="130" y="60" width="100" height="60" rx="6" fill="url(#dev2)" stroke="#3a3f47"/>
+    <text x="180" y="88" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="11" fill="#cfd6df">IP 浜ゆ崲鏈?/text>
+    <text x="180" y="103" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9" fill="#9aa4b2">25G / PTP</text>
+
+    <!-- 鍒囨崲鍙?IP -->
+    <rect x="20" y="55" width="90" height="70" rx="6" fill="url(#dev2)" stroke="#3a3f47"/>
+    <text x="65" y="85" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="11" fill="#cfd6df">IP 鍒囨崲鍙?/text>
+    <text x="65" y="100" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9" fill="#9aa4b2">ST 2110</text>
+
+    <!-- 鐩戣鍣?-->
+    <rect x="250" y="35" width="90" height="110" rx="6" fill="url(#dev2)" stroke="#3a3f47"/>
+    <rect x="262" y="47" width="66" height="60" rx="3" fill="#0a0d12" stroke="#2a3038"/>
+    <text x="295" y="83" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9" fill="#3aa0ff">4K IP</text>
+    <text x="295" y="130" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10" fill="#cfd6df">HX3110</text>
+
+    <!-- 鍏夌氦 -->
+    <path d="M110 90 L130 90" stroke="#5ec1ff" stroke-width="2.5" fill="none"/>
+    <path d="M230 90 L250 90" stroke="#5ec1ff" stroke-width="2.5" fill="none"/>
+    <text x="180" y="50" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10" fill="#5ec1ff">SFP28 + 鍏夌氦</text>
+    <text x="180" y="145" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9" fill="#9aa4b2">ST 2110-20/21/22/30/40 路 NMOS IS-04/05</text>
+</svg>

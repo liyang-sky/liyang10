@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 180" role="img" aria-label="HDMI 璋冭壊宸ヤ綔绔欐帴绾跨ず鎰?>
+    <defs>
+        <linearGradient id="dev3" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#1f242c"/>
+            <stop offset="100%" stop-color="#0e1116"/>
+        </linearGradient>
+    </defs>
+    <!-- 璋冭壊宸ヤ綔绔?-->
+    <rect x="20" y="40" width="110" height="100" rx="6" fill="url(#dev3)" stroke="#3a3f47"/>
+    <text x="75" y="75" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="11" fill="#cfd6df">璋冭壊宸ヤ綔绔?/text>
+    <text x="75" y="92" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9" fill="#9aa4b2">DaVinci / Baselight</text>
+    <rect x="40" y="105" width="70" height="22" rx="3" fill="#0a0d12" stroke="#2a3038"/>
+    <text x="75" y="120" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9" fill="#3aa0ff">HDMI 2.1</text>
+
+    <!-- 鐩戣鍣?-->
+    <rect x="230" y="40" width="110" height="100" rx="6" fill="url(#dev3)" stroke="#3a3f47"/>
+    <rect x="245" y="55" width="80" height="60" rx="3" fill="#0a0d12" stroke="#2a3038"/>
+    <text x="285" y="90" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9" fill="#3aa0ff">4K HDR</text>
+    <text x="285" y="130" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10" fill="#cfd6df">HX3110</text>
+
+    <!-- HDMI 绾?-->
+    <path d="M130 95 L230 95" stroke="#3aa0ff" stroke-width="2.5" fill="none"/>
+    <text x="180" y="85" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10" fill="#3aa0ff">HDMI</text>
+    <text x="180" y="160" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9" fill="#9aa4b2">鎺ㄨ崘 鈮?3 m 路 HDMI 2.1 Ultra High Speed</text>
+</svg>

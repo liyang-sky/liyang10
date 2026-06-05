@@ -1,11 +1,902 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sony BVM-HX3110 鐩戣鍣ㄤ娇鐢ㄦ寚鍗?/title>
     <meta name="description" content="Sony BVM-HX3110 30.5 鑻卞 4K TRIMASTER HX 涓撲笟涓绘帶鐩戣鍣ㄧ殑瀹夎杩炴帴銆佹搷浣滀娇鐢ㄤ笌甯歌闂鎸囧崡銆?>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <style>/* ==============================
+   Sony BVM-HX3110 浣跨敤鎸囧崡 路 鏍峰紡
+   娣?娴呬富棰橀€氳繃 CSS 鍙橀噺鍒囨崲
+   ============================== */
+
+/* ---------- 涓婚鍙橀噺 ---------- */
+:root,
+[data-theme="dark"] {
+    --bg: #0b0d10;
+    --bg-elev: #14181d;
+    --bg-alt: #11151a;
+    --surface: #1a1f25;
+    --border: #262c34;
+    --text: #e7ecf2;
+    --text-muted: #9aa4b2;
+    --accent: #3aa0ff;
+    --accent-2: #5ec1ff;
+    --danger: #f87171;
+    --warning-bg: #3a2a10;
+    --warning-border: #b07a2a;
+    --warning-text: #ffd6a0;
+    --code-bg: #0f1318;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    --radius: 12px;
+    --maxw: 1180px;
+}
+
+[data-theme="light"] {
+    --bg: #f6f8fb;
+    --bg-elev: #ffffff;
+    --bg-alt: #eef2f7;
+    --surface: #ffffff;
+    --border: #d8dee5;
+    --text: #0d1117;
+    --text-muted: #57606a;
+    --accent: #0969da;
+    --accent-2: #218bff;
+    --danger: #cf222e;
+    --warning-bg: #fff8c5;
+    --warning-border: #d4a72c;
+    --warning-text: #7d4e00;
+    --code-bg: #f1f3f5;
+    --shadow: 0 6px 24px rgba(15, 23, 42, 0.08);
+}
+
+/* ---------- 鍩虹閲嶇疆 ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Microsoft YaHei", "Hiragino Sans GB", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+img,
+svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--accent-2);
+    text-decoration: underline;
+}
+
+code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.92em;
+    background: var(--code-bg);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+}
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--accent);
+    color: #fff;
+    padding: 0.6em 1em;
+    z-index: 1000;
+    border-radius: 0 0 6px 0;
+}
+
+.skip-link:focus {
+    left: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ---------- 椤舵爮 ---------- */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--bg-elev) 92%, transparent);
+    backdrop-filter: saturate(160%) blur(10px);
+    -webkit-backdrop-filter: saturate(160%) blur(10px);
+    border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    min-height: 64px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: var(--text);
+}
+
+.brand:hover {
+    text-decoration: none;
+}
+
+.brand-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.brand-text strong {
+    display: block;
+    font-size: 0.98rem;
+    line-height: 1.2;
+}
+
+.brand-text small {
+    display: block;
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    line-height: 1.3;
+}
+
+.primary-nav {
+    margin-left: auto;
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.primary-nav a {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    padding: 0.3rem 0.2rem;
+    border-bottom: 2px solid transparent;
+}
+
+.primary-nav a:hover {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom-color: var(--accent);
+}
+
+.theme-toggle,
+.nav-toggle {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.theme-toggle {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    background: var(--bg-alt);
+}
+
+.nav-toggle {
+    display: none;
+    width: 38px;
+    height: 38px;
+    padding: 8px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav-toggle span {
+    display: block;
+    height: 2px;
+    background: var(--text);
+    border-radius: 1px;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+    background:
+        radial-gradient(1200px 600px at 90% -20%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 60%),
+        var(--bg);
+    padding: 4rem 0 3rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.hero-inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.eyebrow {
+    color: var(--accent);
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin: 0 0 0.6rem;
+    font-weight: 600;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.15;
+    margin: 0 0 1rem;
+    letter-spacing: -0.5px;
+}
+
+.lead {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    margin: 0 0 1.6rem;
+    max-width: 56ch;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 1.3rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform 0.1s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--accent-2);
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--border);
+}
+
+.btn-ghost:hover {
+    background: var(--surface);
+    text-decoration: none;
+}
+
+.hero-art svg {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.35));
+}
+
+/* ---------- 绔犺妭閫氱敤 ---------- */
+.section {
+    padding: 4rem 0;
+}
+
+.section-alt {
+    background: var(--bg-alt);
+}
+
+.section-head {
+    margin-bottom: 2.4rem;
+    max-width: 720px;
+}
+
+.section-num {
+    display: inline-block;
+    color: var(--accent);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+    letter-spacing: 2px;
+}
+
+.section-head h2 {
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    margin: 0 0 0.4rem;
+    letter-spacing: -0.3px;
+}
+
+.section-head p {
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.sub-head {
+    font-size: 1.15rem;
+    margin: 2.4rem 0 1rem;
+    color: var(--text);
+}
+
+/* ---------- 鍗＄墖缃戞牸锛堣鏍硷級 ---------- */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.2rem 1.3rem;
+    transition: transform 0.15s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+}
+
+.card h3 {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--text-muted);
+    margin: 0 0 0.5rem;
+    font-weight: 600;
+}
+
+.card p {
+    margin: 0;
+    color: var(--text);
+    font-size: 0.95rem;
+}
+
+/* ---------- 鏍囩鍒楄〃 ---------- */
+.tag-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag-list li {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.88rem;
+    color: var(--text);
+}
+
+/* ---------- 鏃堕棿绾匡紙姝ラ锛?---------- */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.step {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.4rem 1.6rem;
+    position: relative;
+}
+
+.step h3 {
+    margin: 0 0 0.6rem;
+    font-size: 1.1rem;
+    color: var(--text);
+}
+
+.step p,
+.step li {
+    color: var(--text);
+}
+
+.step ul,
+.step ol {
+    margin: 0.5rem 0 0.2rem;
+    padding-left: 1.3rem;
+}
+
+.step li {
+    margin-bottom: 0.3rem;
+}
+
+.step figure {
+    margin: 1rem 0 0;
+}
+
+.step figcaption {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.warning {
+    background: var(--warning-bg);
+    border-left: 3px solid var(--warning-border);
+    color: var(--warning-text);
+    padding: 0.7rem 1rem;
+    border-radius: 6px;
+    font-size: 0.92rem;
+    margin-top: 0.8rem;
+}
+
+/* ---------- 涓夊垪缃戞牸锛堟帴绾跨ず鎰忥級 ---------- */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.grid-3 figure {
+    margin: 0;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.8rem;
+}
+
+.grid-3 figcaption {
+    margin-top: 0.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* ---------- 鏍戝舰鑿滃崟 ---------- */
+.tree {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0;
+}
+
+.tree li {
+    padding: 0.5rem 0 0.5rem 1.2rem;
+    border-left: 2px solid var(--border);
+    margin-left: 0.5rem;
+    position: relative;
+}
+
+.tree li::before {
+    content: "";
+    position: absolute;
+    left: -2px;
+    top: 1.1rem;
+    width: 0.8rem;
+    height: 2px;
+    background: var(--border);
+}
+
+.tree li strong {
+    color: var(--accent);
+    font-weight: 600;
+    margin-right: 0.4rem;
+}
+
+/* ---------- 璁稿彲璇佸崱鐗?---------- */
+.licenses {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.license-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    text-align: left;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    color: var(--text);
+    cursor: pointer;
+    font: inherit;
+    transition: border-color 0.2s ease, transform 0.1s ease;
+}
+
+.license-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.license-card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.lic-code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.lic-name {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* ---------- FAQ ---------- */
+.faq {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+details {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+}
+
+details[open] {
+    border-color: var(--accent);
+}
+
+summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 1rem 1.3rem;
+    font-weight: 600;
+    color: var(--text);
+    position: relative;
+    padding-right: 2.6rem;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::after {
+    content: "+";
+    position: absolute;
+    right: 1.1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.4rem;
+    line-height: 1;
+    transition: transform 0.2s ease;
+}
+
+details[open] summary::after {
+    content: "鈭?;
+}
+
+.faq-body {
+    padding: 0 1.3rem 1.1rem;
+    color: var(--text);
+}
+
+.faq-body p,
+.faq-body ol,
+.faq-body ul {
+    margin: 0.4rem 0;
+}
+
+.faq-body ol,
+.faq-body ul {
+    padding-left: 1.3rem;
+}
+
+/* ---------- 閾炬帴鍒楄〃 ---------- */
+.link-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.link-list li {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.5rem;
+    transition: border-color 0.2s ease, transform 0.1s ease;
+}
+
+.link-list li:hover {
+    border-color: var(--accent);
+    transform: translateX(2px);
+}
+
+.disclaimer {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--border);
+}
+
+/* ---------- 娴姩 TOC ---------- */
+.toc {
+    position: fixed;
+    right: 1.5rem;
+    top: 100px;
+    width: 180px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    font-size: 0.85rem;
+    box-shadow: var(--shadow);
+    z-index: 30;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+}
+
+.toc-title {
+    margin: 0 0 0.6rem;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+}
+
+.toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: toc;
+}
+
+.toc li {
+    counter-increment: toc;
+    margin: 0.25rem 0;
+}
+
+.toc a {
+    color: var(--text-muted);
+    display: block;
+    padding: 0.3rem 0.4rem;
+    border-radius: 5px;
+    border-left: 2px solid transparent;
+    transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.toc a::before {
+    content: counter(toc, decimal-leading-zero) " ";
+    color: var(--text-muted);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.78rem;
+}
+
+.toc a:hover {
+    color: var(--text);
+    background: var(--bg-alt);
+    text-decoration: none;
+}
+
+.toc a.active {
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+    border-left-color: var(--accent);
+}
+
+/* ---------- 妯℃€佹 ---------- */
+.modal[hidden] {
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.modal-panel {
+    position: relative;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    max-width: 560px;
+    width: 100%;
+    max-height: 86vh;
+    overflow-y: auto;
+    padding: 1.8rem;
+    box-shadow: var(--shadow);
+    animation: modalIn 0.18s ease-out;
+}
+
+@keyframes modalIn {
+    from {
+        transform: translateY(10px) scale(0.98);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 0.7rem;
+    right: 0.9rem;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0.3rem 0.5rem;
+    border-radius: 5px;
+}
+
+.modal-close:hover {
+    color: var(--text);
+    background: var(--bg-alt);
+}
+
+.modal-panel h3 {
+    margin: 0 0 0.4rem;
+    font-size: 1.25rem;
+}
+
+.modal-code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    color: var(--accent);
+    font-weight: 700;
+    margin: 0 0 1rem;
+}
+
+.modal-body {
+    color: var(--text);
+}
+
+.modal-body p {
+    margin: 0.4rem 0;
+}
+
+.modal-body ul {
+    padding-left: 1.2rem;
+    margin: 0.4rem 0;
+}
+
+/* ---------- 椤佃剼 ---------- */
+.site-footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0;
+    background: var(--bg-elev);
+    color: var(--text-muted);
+    font-size: 0.88rem;
+}
+
+.site-footer p {
+    margin: 0.2rem 0;
+}
+
+/* ---------- 鍝嶅簲寮?---------- */
+@media (max-width: 960px) {
+    .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .toc {
+        display: none;
+    }
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 720px) {
+    .nav-toggle {
+        display: flex;
+    }
+    .primary-nav {
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: var(--bg-elev);
+        border-bottom: 1px solid var(--border);
+        padding: 1rem 1.5rem;
+        gap: 0.5rem;
+        margin-left: 0;
+        display: none;
+    }
+    .primary-nav.open {
+        display: flex;
+    }
+    .primary-nav a {
+        padding: 0.5rem 0;
+    }
+    .section {
+        padding: 3rem 0;
+    }
+    .hero {
+        padding: 2.5rem 0 2rem;
+    }
+    .step {
+        padding: 1.1rem 1.2rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
 </head>
 <body>
     <a class="skip-link" href="#main">璺冲埌涓昏鍐呭</a>
@@ -150,7 +1041,7 @@
                     <article class="step">
                         <h3>2.3 鐗╃悊鎺ュ彛</h3>
                         <figure>
-                            <img src="assets/img/rear-panel.svg" alt="BVM-HX3110 鍚庨潰鏉挎帴鍙ｇず鎰忓浘" loading="lazy">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMjQwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkJWTS1IWDMxMTAg6Y2a5bqo5r2w6Y+J5oyO5bi06Y2Z772H44Ga6Y6wPz4KICAgIDxkZWZzPgogICAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0icmVhciIgeDE9IjAiIHgyPSIwIiB5MT0iMCIgeTI9IjEiPgogICAgICAgICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMmEyZTM0Ii8+CiAgICAgICAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzEwMTMxNyIvPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+CiAgICA8IS0tIOmRs+Wxvua+mCAtLT4KICAgIDxyZWN0IHg9IjIwIiB5PSIyMCIgd2lkdGg9IjU2MCIgaGVpZ2h0PSIyMDAiIHJ4PSIxMCIgZmlsbD0idXJsKCNyZWFyKSIgc3Ryb2tlPSIjM2EzZjQ3Ii8+CiAgICA8IS0tIOmQouWeq+ewriAtLT4KICAgIDxyZWN0IHg9IjQwIiB5PSI0MCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjUwIiByeD0iNCIgZmlsbD0iIzBkMTExNiIgc3Ryb2tlPSIjM2EzZjQ3Ii8+CiAgICA8dGV4dCB4PSI4MCIgeT0iNzAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJ1aS1tb25vc3BhY2UsTWVubG8sQ29uc29sYXMsbW9ub3NwYWNlIiBmb250LXNpemU9IjEwIiBmaWxsPSIjOWFhNGIyIj5BQyBJTjwvdGV4dD4KCiAgICA8IS0tIFNESSDmnYjmkrPlj4bpjZY/LS0+CiAgICA8ZyBmb250LWZhbWlseT0idWktbW9ub3NwYWNlLE1lbmxvLENvbnNvbGFzLG1vbm9zcGFjZSIgZm9udC1zaXplPSI5IiBmaWxsPSIjOWFhNGIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4KICAgICAgICA8cmVjdCB4PSIxNDAiIHk9IjQwIiB3aWR0aD0iNTAiIGhlaWdodD0iMzYiIHJ4PSIzIiBmaWxsPSIjMGQxMTE2IiBzdHJva2U9IiMzYTNmNDciLz4KICAgICAgICA8dGV4dCB4PSIxNjUiIHk9IjYyIj4xMkctU0RJIEE8L3RleHQ+CiAgICAgICAgPHJlY3QgeD0iMjAwIiB5PSI0MCIgd2lkdGg9IjUwIiBoZWlnaHQ9IjM2IiByeD0iMyIgZmlsbD0iIzBkMTExNiIgc3Ryb2tlPSIjM2EzZjQ3Ii8+CiAgICAgICAgPHRleHQgeD0iMjI1IiB5PSI2MiI+MTJHLVNESSBCPC90ZXh0PgogICAgICAgIDxyZWN0IHg9IjI2MCIgeT0iNDAiIHdpZHRoPSI1MCIgaGVpZ2h0PSIzNiIgcng9IjMiIGZpbGw9IiMwZDExMTYiIHN0cm9rZT0iIzNhM2Y0NyIvPgogICAgICAgIDx0ZXh0IHg9IjI4NSIgeT0iNjIiPjEyRy1TREkgQzwvdGV4dD4KICAgICAgICA8cmVjdCB4PSIzMjAiIHk9IjQwIiB3aWR0aD0iNTAiIGhlaWdodD0iMzYiIHJ4PSIzIiBmaWxsPSIjMGQxMTE2IiBzdHJva2U9IiMzYTNmNDciLz4KICAgICAgICA8dGV4dCB4PSIzNDUiIHk9IjYyIj4xMkctU0RJIEQ8L3RleHQ+CiAgICA8L2c+CgogICAgPCEtLSBIRE1JIC8gRGlzcGxheVBvcnQgLS0+CiAgICA8ZyBmb250LWZhbWlseT0idWktbW9ub3NwYWNlLE1lbmxvLENvbnNvbGFzLG1vbm9zcGFjZSIgZm9udC1zaXplPSI5IiBmaWxsPSIjOWFhNGIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4KICAgICAgICA8cmVjdCB4PSIxNDAiIHk9Ijg2IiB3aWR0aD0iODAiIGhlaWdodD0iMjAiIHJ4PSIzIiBmaWxsPSIjMGQxMTE2IiBzdHJva2U9IiMzYTNmNDciLz4KICAgICAgICA8dGV4dCB4PSIxODAiIHk9IjEwMCI+SERNSTwvdGV4dD4KICAgICAgICA8cmVjdCB4PSIyMzAiIHk9Ijg2IiB3aWR0aD0iODAiIGhlaWdodD0iMjAiIHJ4PSIzIiBmaWxsPSIjMGQxMTE2IiBzdHJva2U9IiMzYTNmNDciLz4KICAgICAgICA8dGV4dCB4PSIyNzAiIHk9IjEwMCI+RGlzcGxheVBvcnQ8L3RleHQ+CiAgICA8L2c+CgogICAgPCEtLSBJUCAvIFNGUDI4IC0tPgogICAgPHJlY3QgeD0iMzIwIiB5PSI4NiIgd2lkdGg9IjUwIiBoZWlnaHQ9IjIwIiByeD0iMyIgZmlsbD0iIzBkMTExNiIgc3Ryb2tlPSIjM2EzZjQ3Ii8+CiAgICA8dGV4dCB4PSIzNDUiIHk9IjEwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InVpLW1vbm9zcGFjZSxNZW5sbyxDb25zb2xhcyxtb25vc3BhY2UiIGZvbnQtc2l6ZT0iOSIgZmlsbD0iIzlhYTRiMiI+U0ZQMjg8L3RleHQ+CgogICAgPCEtLSBFTU8g5p2I5pKz5ZqtIC0tPgogICAgPHJlY3QgeD0iMzgwIiB5PSI0MCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjM2IiByeD0iMyIgZmlsbD0iIzBkMTExNiIgc3Ryb2tlPSIjM2EzZjQ3Ii8+CiAgICA8dGV4dCB4PSI0MjAiIHk9IjYyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0idWktbW9ub3NwYWNlLE1lbmxvLENvbnNvbGFzLG1vbm9zcGFjZSIgZm9udC1zaXplPSI5IiBmaWxsPSIjOWFhNGIyIj5FTU8gT1VUICgxMkctU0RJKTwvdGV4dD4KCiAgICA8IS0tIExBTiAtLT4KICAgIDxyZWN0IHg9IjQ3MCIgeT0iNDAiIHdpZHRoPSI1MCIgaGVpZ2h0PSIzNiIgcng9IjMiIGZpbGw9IiMwZDExMTYiIHN0cm9rZT0iIzNhM2Y0NyIvPgogICAgPHRleHQgeD0iNDk1IiB5PSI2MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InVpLW1vbm9zcGFjZSxNZW5sbyxDb25zb2xhcyxtb25vc3BhY2UiIGZvbnQtc2l6ZT0iOSIgZmlsbD0iIzlhYTRiMiI+TEFOPC90ZXh0PgoKICAgIDwhLS0gVVNCIC0tPgogICAgPHJlY3QgeD0iNDcwIiB5PSI4NiIgd2lkdGg9IjUwIiBoZWlnaHQ9IjIwIiByeD0iMyIgZmlsbD0iIzBkMTExNiIgc3Ryb2tlPSIjM2EzZjQ3Ii8+CiAgICA8dGV4dCB4PSI0OTUiIHk9IjEwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InVpLW1vbm9zcGFjZSxNZW5sbyxDb25zb2xhcyxtb25vc3BhY2UiIGZvbnQtc2l6ZT0iOSIgZmlsbD0iIzlhYTRiMiI+VVNCPC90ZXh0PgoKICAgIDwhLS0g6Y+N5Zup7oS3IC0tPgogICAgPGcgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IiMzYWEwZmYiPgogICAgICAgIDx0ZXh0IHg9IjQwIiB5PSIyMDAiPumQouWeq+ewrjwvdGV4dD4KICAgICAgICA8dGV4dCB4PSIxNDAiIHk9IjIwMCI+MTJHLVNESSDmnYjmkrPlj4Yg6ISzNDwvdGV4dD4KICAgICAgICA8dGV4dCB4PSIxNDAiIHk9IjEyNSI+SERNSSAvIERQPC90ZXh0PgogICAgICAgIDx0ZXh0IHg9IjMyMCIgeT0iMTI1Ij5JUCAoU0ZQMjgpPC90ZXh0PgogICAgICAgIDx0ZXh0IHg9IjM4MCIgeT0iMTAwIj5FTU8g5p2I5pKz5ZqtPC90ZXh0PgogICAgICAgIDx0ZXh0IHg9IjQ3MCIgeT0iMTAwIj5MQU4gLyBVU0I8L3RleHQ+CiAgICA8L2c+CiAgICA8dGV4dCB4PSI4MCIgeT0iMTU1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0idWktbW9ub3NwYWNlLE1lbmxvLENvbnNvbGFzLG1vbm9zcGFjZSIgZm9udC1zaXplPSI5IiBmaWxsPSIjNjY2Ij5BQyAxMDAtMjQwViDot68gNTAvNjBIejwvdGV4dD4KPC9zdmc+Cg==" alt="BVM-HX3110 鍚庨潰鏉挎帴鍙ｇず鎰忓浘" loading="lazy">
                             <figcaption>鍚庨潰鏉挎帴鍙ｇず鎰忥紙SDI / HDMI / DisplayPort / LAN / SFP28 / USB锛?/figcaption>
                         </figure>
                     </article>
@@ -159,15 +1050,15 @@
                         <h3>2.4 鍏稿瀷鎺ョ嚎绀轰緥</h3>
                         <div class="grid-3">
                             <figure>
-                                <img src="assets/img/cabling-sdi.svg" alt="12G-SDI 鐩存挱鎺ョ嚎" loading="lazy">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNjAgMTgwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IjEyRy1TREkg6ZCp5a2Y5oyx5raT57uY5bi26Y6644On5ZqO57uA54OY5YmwIj4KICAgIDxkZWZzPgogICAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZGV2IiB4MT0iMCIgeDI9IjAiIHkxPSIwIiB5Mj0iMSI+CiAgICAgICAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxZjI0MmMiLz4KICAgICAgICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMGUxMTE2Ii8+CiAgICAgICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDwvZGVmcz4KICAgIDwhLS0g6Y2S5Zuo5bSy6Y2ZPy0tPgogICAgPHJlY3QgeD0iMjAiIHk9IjU1IiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjcwIiByeD0iNiIgZmlsbD0idXJsKCNkZXYpIiBzdHJva2U9IiMzYTNmNDciLz4KICAgIDx0ZXh0IHg9IjcwIiB5PSI4NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InVpLW1vbm9zcGFjZSxNZW5sbyxDb25zb2xhcyxtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTEiIGZpbGw9IiNjZmQ2ZGYiPumNkuWbqOW0sumNmT8vdGV4dD4KICAgIDx0ZXh0IHg9IjcwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJ1aS1tb25vc3BhY2UsTWVubG8sQ29uc29sYXMsbW9ub3NwYWNlIiBmb250LXNpemU9IjkiIGZpbGw9IiM5YWE0YjIiPjEyRy1TREkgT1VUPC90ZXh0PgoKICAgIDwhLS0g6ZCp5oij7p2L6Y2jPy0tPgogICAgPHJlY3QgeD0iMjQwIiB5PSIzNSIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMTAiIHJ4PSI2IiBmaWxsPSJ1cmwoI2RldikiIHN0cm9rZT0iIzNhM2Y0NyIvPgogICAgPHJlY3QgeD0iMjUyIiB5PSI0NyIgd2lkdGg9Ijc2IiBoZWlnaHQ9IjYwIiByeD0iMyIgZmlsbD0iIzBhMGQxMiIgc3Ryb2tlPSIjMmEzMDM4Ii8+CiAgICA8dGV4dCB4PSIyOTAiIHk9IjgzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0idWktbW9ub3NwYWNlLE1lbmxvLENvbnNvbGFzLG1vbm9zcGFjZSIgZm9udC1zaXplPSI5IiBmaWxsPSIjM2FhMGZmIj40SyBIRFI8L3RleHQ+CiAgICA8dGV4dCB4PSIyOTAiIHk9IjEzMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InVpLW1vbm9zcGFjZSxNZW5sbyxDb25zb2xhcyxtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IiNjZmQ2ZGYiPkJWTS1IWDMxMTA8L3RleHQ+CgogICAgPCEtLSDpjrrjg6flmo4gLS0+CiAgICA8cGF0aCBkPSJNMTIwIDkwIEwyNDAgOTAiIHN0cm9rZT0iIzNhYTBmZiIgc3Ryb2tlLXdpZHRoPSIyLjUiIGZpbGw9Im5vbmUiLz4KICAgIDx0ZXh0IHg9IjE4MCIgeT0iODIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJ1aS1tb25vc3BhY2UsTWVubG8sQ29uc29sYXMsbW9ub3NwYWNlIiBmb250LXNpemU9IjEwIiBmaWxsPSIjM2FhMGZmIj4xMkctU0RJPC90ZXh0PgoKICAgIDwhLS0g6Y695Yur5YSa6Y+IPy0tPgogICAgPHJlY3QgeD0iMjAiIHk9IjE0NSIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIyNSIgcng9IjQiIGZpbGw9InVybCgjZGV2KSIgc3Ryb2tlPSIjM2EzZjQ3Ii8+CiAgICA8dGV4dCB4PSI3MCIgeT0iMTYxIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0idWktbW9ub3NwYWNlLE1lbmxvLENvbnNvbGFzLG1vbm9zcGFjZSIgZm9udC1zaXplPSI5IiBmaWxsPSIjOWFhNGIyIj7pjr3li6vlhJrpj4g/LyDopLDmm57lhJrpj4g/L3RleHQ+CiAgICA8cGF0aCBkPSJNMTIwIDE1OCBMMTgwIDE1OCBMMTgwIDExMCIgc3Ryb2tlPSIjNjY2IiBzdHJva2Utd2lkdGg9IjEuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWRhc2hhcnJheT0iMywzIi8+Cjwvc3ZnPgo=" alt="12G-SDI 鐩存挱鎺ョ嚎" loading="lazy">
                                 <figcaption>鏂规 A锛?2G-SDI 鐩存挱涓绘帶</figcaption>
                             </figure>
                             <figure>
-                                <img src="assets/img/cabling-ip.svg" alt="IP ST 2110 鎺ョ嚎" loading="lazy">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNjAgMTgwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IklQIFNUIDIxMTAg6Y6644On5ZqO57uA54OY5YmwIj4KICAgIDxkZWZzPgogICAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZGV2MiIgeDE9IjAiIHgyPSIwIiB5MT0iMCIgeTI9IjEiPgogICAgICAgICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMWYyNDJjIi8+CiAgICAgICAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzBlMTExNiIvPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+CiAgICA8IS0tIElQIOa1nOOChuW0sumPiD8tLT4KICAgIDxyZWN0IHg9IjEzMCIgeT0iNjAiIHdpZHRoPSIxMDAiIGhlaWdodD0iNjAiIHJ4PSI2IiBmaWxsPSJ1cmwoI2RldjIpIiBzdHJva2U9IiMzYTNmNDciLz4KICAgIDx0ZXh0IHg9IjE4MCIgeT0iODgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJ1aS1tb25vc3BhY2UsTWVubG8sQ29uc29sYXMsbW9ub3NwYWNlIiBmb250LXNpemU9IjExIiBmaWxsPSIjY2ZkNmRmIj5JUCDmtZzjgobltLLpj4g/L3RleHQ+CiAgICA8dGV4dCB4PSIxODAiIHk9IjEwMyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InVpLW1vbm9zcGFjZSxNZW5sbyxDb25zb2xhcyxtb25vc3BhY2UiIGZvbnQtc2l6ZT0iOSIgZmlsbD0iIzlhYTRiMiI+MjVHIC8gUFRQPC90ZXh0PgoKICAgIDwhLS0g6Y2S5Zuo5bSy6Y2ZP0lQIC0tPgogICAgPHJlY3QgeD0iMjAiIHk9IjU1IiB3aWR0aD0iOTAiIGhlaWdodD0iNzAiIHJ4PSI2IiBmaWxsPSJ1cmwoI2RldjIpIiBzdHJva2U9IiMzYTNmNDciLz4KICAgIDx0ZXh0IHg9IjY1IiB5PSI4NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InVpLW1vbm9zcGFjZSxNZW5sbyxDb25zb2xhcyxtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTEiIGZpbGw9IiNjZmQ2ZGYiPklQIOmNkuWbqOW0sumNmT8vdGV4dD4KICAgIDx0ZXh0IHg9IjY1IiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJ1aS1tb25vc3BhY2UsTWVubG8sQ29uc29sYXMsbW9ub3NwYWNlIiBmb250LXNpemU9IjkiIGZpbGw9IiM5YWE0YjIiPlNUIDIxMTA8L3RleHQ+CgogICAgPCEtLSDpkKnmiKPunYvpjaM/LS0+CiAgICA8cmVjdCB4PSIyNTAiIHk9IjM1IiB3aWR0aD0iOTAiIGhlaWdodD0iMTEwIiByeD0iNiIgZmlsbD0idXJsKCNkZXYyKSIgc3Ryb2tlPSIjM2EzZjQ3Ii8+CiAgICA8cmVjdCB4PSIyNjIiIHk9IjQ3IiB3aWR0aD0iNjYiIGhlaWdodD0iNjAiIHJ4PSIzIiBmaWxsPSIjMGEwZDEyIiBzdHJva2U9IiMyYTMwMzgiLz4KICAgIDx0ZXh0IHg9IjI5NSIgeT0iODMiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJ1aS1tb25vc3BhY2UsTWVubG8sQ29uc29sYXMsbW9ub3NwYWNlIiBmb250LXNpemU9IjkiIGZpbGw9IiMzYWEwZmYiPjRLIElQPC90ZXh0PgogICAgPHRleHQgeD0iMjk1IiB5PSIxMzAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJ1aS1tb25vc3BhY2UsTWVubG8sQ29uc29sYXMsbW9ub3NwYWNlIiBmb250LXNpemU9IjEwIiBmaWxsPSIjY2ZkNmRmIj5IWDMxMTA8L3RleHQ+CgogICAgPCEtLSDpjY/lpIzmsKYgLS0+CiAgICA8cGF0aCBkPSJNMTEwIDkwIEwxMzAgOTAiIHN0cm9rZT0iIzVlYzFmZiIgc3Ryb2tlLXdpZHRoPSIyLjUiIGZpbGw9Im5vbmUiLz4KICAgIDxwYXRoIGQ9Ik0yMzAgOTAgTDI1MCA5MCIgc3Ryb2tlPSIjNWVjMWZmIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsbD0ibm9uZSIvPgogICAgPHRleHQgeD0iMTgwIiB5PSI1MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InVpLW1vbm9zcGFjZSxNZW5sbyxDb25zb2xhcyxtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IiM1ZWMxZmYiPlNGUDI4ICsg6Y2P5aSM5rCmPC90ZXh0PgogICAgPHRleHQgeD0iMTgwIiB5PSIxNDUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJ1aS1tb25vc3BhY2UsTWVubG8sQ29uc29sYXMsbW9ub3NwYWNlIiBmb250LXNpemU9IjkiIGZpbGw9IiM5YWE0YjIiPlNUIDIxMTAtMjAvMjEvMjIvMzAvNDAg6LevIE5NT1MgSVMtMDQvMDU8L3RleHQ+Cjwvc3ZnPgo=" alt="IP ST 2110 鎺ョ嚎" loading="lazy">
                                 <figcaption>鏂规 B锛欼P ST 2110 鏃犲帇缂?/figcaption>
                             </figure>
                             <figure>
-                                <img src="assets/img/cabling-hdmi.svg" alt="HDMI 璋冭壊鎺ョ嚎" loading="lazy">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNjAgMTgwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkhETUkg55KL5Yat5aOK5a6444Ok57aU57uU5qyQ5bi057u+6Leo44Ga6Y6wPz4KICAgIDxkZWZzPgogICAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZGV2MyIgeDE9IjAiIHgyPSIwIiB5MT0iMCIgeTI9IjEiPgogICAgICAgICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMWYyNDJjIi8+CiAgICAgICAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzBlMTExNiIvPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+CiAgICA8IS0tIOeSi+WGreWjiuWuuOODpOe2lOe7lD8tLT4KICAgIDxyZWN0IHg9IjIwIiB5PSI0MCIgd2lkdGg9IjExMCIgaGVpZ2h0PSIxMDAiIHJ4PSI2IiBmaWxsPSJ1cmwoI2RldjMpIiBzdHJva2U9IiMzYTNmNDciLz4KICAgIDx0ZXh0IHg9Ijc1IiB5PSI3NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InVpLW1vbm9zcGFjZSxNZW5sbyxDb25zb2xhcyxtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTEiIGZpbGw9IiNjZmQ2ZGYiPueSi+WGreWjiuWuuOODpOe2lOe7lD8vdGV4dD4KICAgIDx0ZXh0IHg9Ijc1IiB5PSI5MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InVpLW1vbm9zcGFjZSxNZW5sbyxDb25zb2xhcyxtb25vc3BhY2UiIGZvbnQtc2l6ZT0iOSIgZmlsbD0iIzlhYTRiMiI+RGFWaW5jaSAvIEJhc2VsaWdodDwvdGV4dD4KICAgIDxyZWN0IHg9IjQwIiB5PSIxMDUiIHdpZHRoPSI3MCIgaGVpZ2h0PSIyMiIgcng9IjMiIGZpbGw9IiMwYTBkMTIiIHN0cm9rZT0iIzJhMzAzOCIvPgogICAgPHRleHQgeD0iNzUiIHk9IjEyMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InVpLW1vbm9zcGFjZSxNZW5sbyxDb25zb2xhcyxtb25vc3BhY2UiIGZvbnQtc2l6ZT0iOSIgZmlsbD0iIzNhYTBmZiI+SERNSSAyLjE8L3RleHQ+CgogICAgPCEtLSDpkKnmiKPunYvpjaM/LS0+CiAgICA8cmVjdCB4PSIyMzAiIHk9IjQwIiB3aWR0aD0iMTEwIiBoZWlnaHQ9IjEwMCIgcng9IjYiIGZpbGw9InVybCgjZGV2MykiIHN0cm9rZT0iIzNhM2Y0NyIvPgogICAgPHJlY3QgeD0iMjQ1IiB5PSI1NSIgd2lkdGg9IjgwIiBoZWlnaHQ9IjYwIiByeD0iMyIgZmlsbD0iIzBhMGQxMiIgc3Ryb2tlPSIjMmEzMDM4Ii8+CiAgICA8dGV4dCB4PSIyODUiIHk9IjkwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0idWktbW9ub3NwYWNlLE1lbmxvLENvbnNvbGFzLG1vbm9zcGFjZSIgZm9udC1zaXplPSI5IiBmaWxsPSIjM2FhMGZmIj40SyBIRFI8L3RleHQ+CiAgICA8dGV4dCB4PSIyODUiIHk9IjEzMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InVpLW1vbm9zcGFjZSxNZW5sbyxDb25zb2xhcyxtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IiNjZmQ2ZGYiPkhYMzExMDwvdGV4dD4KCiAgICA8IS0tIEhETUkg57u+Py0tPgogICAgPHBhdGggZD0iTTEzMCA5NSBMMjMwIDk1IiBzdHJva2U9IiMzYWEwZmYiIHN0cm9rZS13aWR0aD0iMi41IiBmaWxsPSJub25lIi8+CiAgICA8dGV4dCB4PSIxODAiIHk9Ijg1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0idWktbW9ub3NwYWNlLE1lbmxvLENvbnNvbGFzLG1vbm9zcGFjZSIgZm9udC1zaXplPSIxMCIgZmlsbD0iIzNhYTBmZiI+SERNSTwvdGV4dD4KICAgIDx0ZXh0IHg9IjE4MCIgeT0iMTYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0idWktbW9ub3NwYWNlLE1lbmxvLENvbnNvbGFzLG1vbm9zcGFjZSIgZm9udC1zaXplPSI5IiBmaWxsPSIjOWFhNGIyIj7pjrrjhKjltJgg6YiuPzMgbSDot68gSERNSSAyLjEgVWx0cmEgSGlnaCBTcGVlZDwvdGV4dD4KPC9zdmc+Cg==" alt="HDMI 璋冭壊鎺ョ嚎" loading="lazy">
                                 <figcaption>鏂规 C锛欻DMI 璋冭壊宸ヤ綔绔?/figcaption>
                             </figure>
                         </div>
@@ -215,7 +1106,7 @@
                 <article class="step">
                     <h3>3.1 鍓嶉潰鏉挎寜閿?/h3>
                     <figure>
-                        <img src="assets/img/front-panel.svg" alt="鍓嶉潰鏉挎寜閿竷灞€绀烘剰" loading="lazy">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMjIwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkJWTS1IWDMxMTAg6Y2T5baJ5r2w6Y+J5oyO5a+c6Za/7oa856u354Ge4oKs57uA54OY5YmwIj4KICAgIDxkZWZzPgogICAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmV6ZWwiIHgxPSIwIiB4Mj0iMCIgeTE9IjAiIHkyPSIxIj4KICAgICAgICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzJhMmEyYSIvPgogICAgICAgICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwZDBkMGQiLz4KICAgICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYnRuIiB4MT0iMCIgeDI9IjAiIHkxPSIwIiB5Mj0iMSI+CiAgICAgICAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMzYTNmNDciLz4KICAgICAgICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMWQyMTI4Ii8+CiAgICAgICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDwvZGVmcz4KICAgIDwhLS0g6ZCp5oij7p2L6Y2j44Sl5aKg5aaXPy0tPgogICAgPHJlY3QgeD0iMjAiIHk9IjIwIiB3aWR0aD0iNTYwIiBoZWlnaHQ9IjE4MCIgcng9IjEwIiBmaWxsPSJ1cmwoI2JlemVsKSIgc3Ryb2tlPSIjNDQ0IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDwhLS0g54Ge5b+T56636Y2X54qx57aFIC0tPgogICAgPHJlY3QgeD0iMzYiIHk9IjM2IiB3aWR0aD0iMzgwIiBoZWlnaHQ9IjE0OCIgcng9IjQiIGZpbGw9IiMwYTBkMTIiIHN0cm9rZT0iIzJhMzAzOCIvPgogICAgPHRleHQgeD0iMjI2IiB5PSIxMTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJ1aS1tb25vc3BhY2UsTWVubG8sQ29uc29sYXMsbW9ub3NwYWNlIiBmb250LXNpemU9IjEzIiBmaWxsPSIjM2FhMGZmIiBvcGFjaXR5PSIwLjkiPjRLIOi3ryBIRFI8L3RleHQ+CiAgICA8IS0tIOWuuO+4v+aZtiBsb2dvIOmNlj8tLT4KICAgIDx0ZXh0IHg9IjQ4IiB5PSIyMDAiIGZvbnQtZmFtaWx5PSJ1aS1tb25vc3BhY2UsTWVubG8sQ29uc29sYXMsbW9ub3NwYWNlIiBmb250LXNpemU9IjEwIiBmaWxsPSIjODg4Ij5TT05ZPC90ZXh0PgogICAgPHRleHQgeD0iNDgiIHk9IjUwIiBmb250LWZhbWlseT0idWktbW9ub3NwYWNlLE1lbmxvLENvbnNvbGFzLG1vbm9zcGFjZSIgZm9udC1zaXplPSIxMCIgZmlsbD0iIzY2NiI+QlZNLUhYMzExMDwvdGV4dD4KCiAgICA8IS0tIOmOuOWkkOaVremNlj8tLT4KICAgIDxnIGZvbnQtZmFtaWx5PSJ1aS1tb25vc3BhY2UsTWVubG8sQ29uc29sYXMsbW9ub3NwYWNlIiBmb250LXNpemU9IjkiIGZpbGw9IiNjZmQ2ZGYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPgogICAgICAgIDwhLS0g6ZCi5Z6r57CuIC0tPgogICAgICAgIDxyZWN0IHg9IjQzNiIgeT0iMzYiIHdpZHRoPSIzNiIgaGVpZ2h0PSIyMiIgcng9IjQiIGZpbGw9InVybCgjYnRuKSIvPgogICAgICAgIDx0ZXh0IHg9IjQ1NCIgeT0iNTEiPlBPV0VSPC90ZXh0PgoKICAgICAgICA8IS0tIOmRv+a7g+W0n+mWvz8tLT4KICAgICAgICA8cmVjdCB4PSI0MzYiIHk9IjY4IiB3aWR0aD0iMzYiIGhlaWdodD0iMjIiIHJ4PSI0IiBmaWxsPSJ1cmwoI2J0bikiLz4KICAgICAgICA8dGV4dCB4PSI0NTQiIHk9IjgzIj5NRU5VPC90ZXh0PgoKICAgICAgICA8IS0tIOmPg+WsruaMsyAtLT4KICAgICAgICA8Y2lyY2xlIGN4PSI1MDAiIGN5PSI3OSIgcj0iMjAiIGZpbGw9InVybCgjYnRuKSIgc3Ryb2tlPSIjNDQ0Ii8+CiAgICAgICAgPGNpcmNsZSBjeD0iNTAwIiBjeT0iNzkiIHI9IjYiIGZpbGw9IiMwZDExMTYiLz4KICAgICAgICA8dGV4dCB4PSI1MDAiIHk9IjExNiI+Sk9HPC90ZXh0PgoKICAgICAgICA8IS0tIOadiOaSs+WPhumWq+Wki+WrqCAtLT4KICAgICAgICA8cmVjdCB4PSI1NDAiIHk9IjM2IiB3aWR0aD0iMzYiIGhlaWdodD0iMjIiIHJ4PSI0IiBmaWxsPSJ1cmwoI2J0bikiLz4KICAgICAgICA8dGV4dCB4PSI1NjgiIHk9IjUxIj5JTi1BPC90ZXh0PgogICAgICAgIDxyZWN0IHg9IjU0MCIgeT0iNjIiIHdpZHRoPSIzNiIgaGVpZ2h0PSIyMiIgcng9IjQiIGZpbGw9InVybCgjYnRuKSIvPgogICAgICAgIDx0ZXh0IHg9IjU2OCIgeT0iNzciPklOLUI8L3RleHQ+CiAgICAgICAgPHJlY3QgeD0iNTQwIiB5PSI4OCIgd2lkdGg9IjM2IiBoZWlnaHQ9IjIyIiByeD0iNCIgZmlsbD0idXJsKCNidG4pIi8+CiAgICAgICAgPHRleHQgeD0iNTY4IiB5PSIxMDMiPklQPC90ZXh0PgogICAgICAgIDxyZWN0IHg9IjU0MCIgeT0iMTE0IiB3aWR0aD0iMzYiIGhlaWdodD0iMjIiIHJ4PSI0IiBmaWxsPSJ1cmwoI2J0bikiLz4KICAgICAgICA8dGV4dCB4PSI1NjgiIHk9IjEyOSI+SERNSTwvdGV4dD4KICAgICAgICA8cmVjdCB4PSI1NDAiIHk9IjE0MCIgd2lkdGg9IjM2IiBoZWlnaHQ9IjIyIiByeD0iNCIgZmlsbD0idXJsKCNidG4pIi8+CiAgICAgICAgPHRleHQgeD0iNTY4IiB5PSIxNTUiPkRQPC90ZXh0PgoKICAgICAgICA8IS0tIOmNlOeGu+WFmOmWvz8tLT4KICAgICAgICA8cmVjdCB4PSI0MzYiIHk9IjEwMCIgd2lkdGg9IjM2IiBoZWlnaHQ9IjIyIiByeD0iNCIgZmlsbD0idXJsKCNidG4pIi8+CiAgICAgICAgPHRleHQgeD0iNDU0IiB5PSIxMTUiPkYxPC90ZXh0PgogICAgICAgIDxyZWN0IHg9IjQzNiIgeT0iMTI2IiB3aWR0aD0iMzYiIGhlaWdodD0iMjIiIHJ4PSI0IiBmaWxsPSJ1cmwoI2J0bikiLz4KICAgICAgICA8dGV4dCB4PSI0NTQiIHk9IjE0MSI+RjI8L3RleHQ+CiAgICAgICAgPHJlY3QgeD0iNDM2IiB5PSIxNTIiIHdpZHRoPSIzNiIgaGVpZ2h0PSIyMiIgcng9IjQiIGZpbGw9InVybCgjYnRuKSIvPgogICAgICAgIDx0ZXh0IHg9IjQ1NCIgeT0iMTY3Ij5GMzwvdGV4dD4KICAgIDwvZz4KCiAgICA8IS0tIOmPjeWbqOaVnue7vj8tLT4KICAgIDxnIHN0cm9rZT0iIzNhYTBmZiIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBvcGFjaXR5PSIwLjciPgogICAgICAgIDxsaW5lIHgxPSI0OTAiIHkxPSI3OSIgeDI9IjUwMCIgeTI9IjE5MCIvPgogICAgICAgIDxsaW5lIHgxPSI1NjAiIHkxPSIxMDAiIHgyPSI1OTAiIHkyPSIxOTAiLz4KICAgIDwvZz4KICAgIDxnIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwIiBmaWxsPSIjM2FhMGZmIj4KICAgICAgICA8dGV4dCB4PSI0ODAiIHk9IjIwNCI+6Y+D5ayu5oyzPC90ZXh0PgogICAgICAgIDx0ZXh0IHg9IjU4MiIgeT0iMjA0Ij7mnYjmkrPlj4bplr8/L3RleHQ+CiAgICA8L2c+Cjwvc3ZnPgo=" alt="鍓嶉潰鏉挎寜閿竷灞€绀烘剰" loading="lazy">
                         <figcaption>鍓嶉潰鏉匡細鐢垫簮 / 杈撳叆閫夋嫨 / 鑿滃崟 / 鏃嬮挳 / 鍔熻兘閿?/ 閫氶亾棰勮</figcaption>
                     </figure>
                 </article>
@@ -437,6 +1328,211 @@
         </div>
     </footer>
 
-    <script src="assets/js/main.js" defer></script>
+    <script>/* ==============================
+   Sony BVM-HX3110 浣跨敤鎸囧崡 路 鑴氭湰
+   涓婚鍒囨崲 / FAQ / TOC 楂樹寒 / 璁稿彲璇佹ā鎬佹 / 绉诲姩绔鑸?   ============================== */
+(function () {
+    "use strict";
+
+    /* ---------- 1. 涓婚鍒囨崲锛堟寔涔呭寲锛?---------- */
+    const THEME_KEY = "bvmhx3110-theme";
+    const root = document.documentElement;
+    const themeBtn = document.getElementById("themeToggle");
+    const themeIcon = themeBtn ? themeBtn.querySelector(".theme-icon") : null;
+
+    function applyTheme(theme) {
+        root.setAttribute("data-theme", theme);
+        if (themeIcon) themeIcon.textContent = theme === "dark" ? "鈽? : "鈽€";
+        if (themeBtn) themeBtn.setAttribute("aria-label", theme === "dark" ? "鍒囨崲涓烘祬鑹蹭富棰? : "鍒囨崲涓烘繁鑹蹭富棰?);
+    }
+
+    function initTheme() {
+        let saved = null;
+        try {
+            saved = localStorage.getItem(THEME_KEY);
+        } catch (e) {
+            /* localStorage 涓嶅彲鐢ㄦ椂蹇界暐 */
+        }
+        if (saved === "light" || saved === "dark") {
+            applyTheme(saved);
+        } else {
+            const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+            applyTheme(prefersLight ? "light" : "dark");
+        }
+    }
+
+    if (themeBtn) {
+        themeBtn.addEventListener("click", function () {
+            const current = root.getAttribute("data-theme") === "light" ? "light" : "dark";
+            const next = current === "dark" ? "light" : "dark";
+            applyTheme(next);
+            try {
+                localStorage.setItem(THEME_KEY, next);
+            } catch (e) {
+                /* 蹇界暐瀛樺偍閿欒 */
+            }
+        });
+    }
+
+    /* ---------- 2. 绉诲姩绔鑸姌鍙?---------- */
+    const navToggle = document.getElementById("navToggle");
+    const primaryNav = document.querySelector(".primary-nav");
+
+    if (navToggle && primaryNav) {
+        navToggle.addEventListener("click", function () {
+            const isOpen = primaryNav.classList.toggle("open");
+            navToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        // 鐐瑰嚮瀵艰埅椤瑰悗鑷姩鍏抽棴锛堢Щ鍔ㄧ锛?        primaryNav.querySelectorAll("a").forEach(function (a) {
+            a.addEventListener("click", function () {
+                if (primaryNav.classList.contains("open")) {
+                    primaryNav.classList.remove("open");
+                    navToggle.setAttribute("aria-expanded", "false");
+                }
+            });
+        });
+    }
+
+    /* ---------- 3. 娴姩 TOC 路 婊氬姩鑱斿姩 ---------- */
+    const tocLinks = document.querySelectorAll(".toc a[data-toc]");
+    const tocTargets = Array.from(tocLinks)
+        .map(function (a) {
+            return document.querySelector(a.getAttribute("href"));
+        })
+        .filter(Boolean);
+
+    function setActiveToc(activeId) {
+        tocLinks.forEach(function (a) {
+            const href = a.getAttribute("href");
+            a.classList.toggle("active", href === "#" + activeId);
+        });
+    }
+
+    if ("IntersectionObserver" in window && tocTargets.length) {
+        const observer = new IntersectionObserver(
+            function (entries) {
+                // 鎵惧埌鏈€闈犺繎瑙嗗彛椤堕儴 1/3 澶勭殑鍙 section
+                const visible = entries
+                    .filter(function (e) { return e.isIntersecting; })
+                    .sort(function (a, b) {
+                        return a.boundingClientRect.top - b.boundingClientRect.top;
+                    });
+                if (visible.length) {
+                    setActiveToc(visible[0].target.id);
+                }
+            },
+            { rootMargin: "-30% 0px -55% 0px", threshold: 0 }
+        );
+        tocTargets.forEach(function (t) { observer.observe(t); });
+    }
+
+    /* ---------- 4. 璁稿彲璇佹暟鎹?+ 妯℃€佹 ---------- */
+    const LICENSES = {
+        T10: {
+            code: "BVML-T10",
+            name: "3D LUT 杈撳嚭璁稿彲璇?,
+            desc: "鍏佽灏嗚嚜瀹氫箟 3D LUT 搴旂敤浜庣洃瑙嗗櫒鐨?EMO锛圗nhanced Monitor Output锛夎緭鍑洪€氶亾锛屼究浜庡湪 LUT 鍔犺浇鐘舵€佷笅鍚屾椂鐩戠湅鍘熺墖涓庡鑹茬粨鏋溿€?,
+            notes: ["鏀寔 USB 鍔犺浇鐢ㄦ埛 LUT", "閲囩敤楂樿川閲忓洓闈綋鎻掑€?, "鍙綔涓?HDR鈫扴DR 杞崲鐨勮緟鍔?]
+        },
+        S10: {
+            code: "BVML-S10",
+            name: "淇″彿杞崲杈撳嚭璁稿彲璇?,
+            desc: "鍦?EMO 杈撳嚭閫氶亾涓婂惎鐢?3D LUT 涓?4K鈫扝D 涓嬪彉鎹紝渚夸簬灏嗕竴鍙扮洃瑙嗗櫒鐨勭敾闈㈠悓鏃惰浆鎹负 HD SDR 杈撳嚭缁欎笅娓歌澶囥€?,
+            notes: ["鏀寔 3D LUT", "鏀寔 4K 鈫?HD 涓嬪彉鎹?, "鍙笌 BVML-H10 鍙犲姞浣跨敤"]
+        },
+        H10: {
+            code: "BVML-H10",
+            name: "HDR-SDR 杞崲杈撳嚭璁稿彲璇?,
+            desc: "Sony 瀹樻柟 HDR-SDR 杞崲鏂规锛岀粨鍚?3D LUT 涓?4K-HD 杞崲鑳藉姏锛屽疄鐜?4K/HD HDR 涓?HD SDR 鐨勫悓姝ュ埗浣溿€?,
+            notes: ["HDR-SDR 杞崲", "3D LUT", "4K-HD 杞崲", "鍐呯疆娉㈠舰鐩戣鍣?/ 鐭㈤噺绀烘尝鍣ㄥ彲鏍￠獙杞崲缁撴灉"]
+        },
+        SN10: {
+            code: "BVML-SN10",
+            name: "SNMP 璁稿彲璇?,
+            desc: "鍚敤 SNMP 鍗忚鏀寔锛屼究浜庡湪鎾嚭鎺у埗绯荤粺涓鐩戣鍣ㄨ繘琛岃繙绋嬬姸鎬佹煡璇笌鍛婅涓婃姤銆?,
+            notes: ["鍏煎涓绘祦 NMS 骞冲彴", "鏀寔鏍囧噯 MIB", "鍙繙绋嬭鍙栨俯搴︺€佷俊鍙枫€佸浐浠剁増鏈瓑鐘舵€?]
+        },
+        JD10: {
+            code: "BVML-JD10",
+            name: "JPEG XS 瑙ｇ爜璁稿彲璇?,
+            desc: "涓?IP 鍒朵綔閾捐矾鍚敤 JPEG XS 瑙ｇ爜鑳藉姏锛屾敮鎸佷綆寤惰繜銆佽瑙夋棤鎹熺殑 IP 瑙嗛娴佹帴鍏ャ€?,
+            notes: ["浣庡欢杩?IP 瑙ｇ爜", "涓?ST 2110-20 鍏煎", "閫傞厤 Networked Live 鐢熸€?]
+        },
+        F10: {
+            code: "BVML-F10",
+            name: "蹇€熷搷搴旇鍙瘉",
+            desc: "鍚敤楂橀€熷儚绱犲搷搴旀ā寮忥紝閫傚悎浣撹偛銆佹紨鍞变細绛夊惈蹇€熷钩绉讳笌鏂囧瓧婊氬姩鏉＄殑鐢婚潰銆?,
+            notes: ["闄嶄綆杩愬姩妯＄硦", "婊氬姩瀛楀箷鏇存槗璇?, "鎺ㄨ崘鐩存挱鍦烘櫙鍚敤"]
+        }
+    };
+
+    const modal = document.getElementById("licenseModal");
+    const modalTitle = document.getElementById("licenseTitle");
+    const modalCode = document.getElementById("licenseCode");
+    const modalBody = document.getElementById("licenseBody");
+    let lastFocused = null;
+
+    function openModal(key) {
+        const lic = LICENSES[key];
+        if (!lic || !modal) return;
+
+        lastFocused = document.activeElement;
+
+        modalCode.textContent = lic.code;
+        modalTitle.textContent = lic.name;
+
+        const notesHtml = lic.notes
+            .map(function (n) { return "<li>" + n + "</li>"; })
+            .join("");
+        modalBody.innerHTML =
+            "<p>" + lic.desc + "</p>" +
+            (lic.notes && lic.notes.length
+                ? "<p><strong>鍏抽敭鑳藉姏</strong></p><ul>" + notesHtml + "</ul>"
+                : "");
+
+        modal.hidden = false;
+        modal.setAttribute("aria-hidden", "false");
+
+        // 鑷姩鐒︾偣鍒板叧闂寜閽?        const closeBtn = modal.querySelector(".modal-close");
+        if (closeBtn) closeBtn.focus();
+
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+        if (!modal) return;
+        modal.hidden = true;
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        if (lastFocused && typeof lastFocused.focus === "function") {
+            lastFocused.focus();
+        }
+    }
+
+    // 缁戝畾璁稿彲璇佸崱鐗囩偣鍑?    document.querySelectorAll(".license-card").forEach(function (card) {
+        card.addEventListener("click", function () {
+            const key = card.getAttribute("data-license");
+            openModal(key);
+        });
+    });
+
+    // 鍏抽棴锛氱偣鍑?backdrop 鎴栧叧闂寜閽?    if (modal) {
+        modal.querySelectorAll("[data-close]").forEach(function (el) {
+            el.addEventListener("click", closeModal);
+        });
+
+        // Esc 閿叧闂?        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && !modal.hidden) {
+                closeModal();
+            }
+        });
+    }
+
+    /* ---------- 5. 鍚姩 ---------- */
+    initTheme();
+})();
+</script>
 </body>
 </html>
+

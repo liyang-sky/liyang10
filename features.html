@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>功能详解 - BVM-HX3110 简易操作指南</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .page-content { max-width: 1000px; margin: 0 auto; padding: 60px 24px; }
+    .page-content h2 { font-size: 28px; margin-bottom: 12px; }
+    .page-content > p { color: var(--text-secondary); margin-bottom: 36px; }
+    .feature-section { background: var(--bg-card); border-radius: var(--radius-lg); padding: 32px; margin-bottom: 24px; box-shadow: var(--shadow); border: 1px solid var(--border); }
+    .feature-section h3 { font-size: 20px; color: var(--primary-dark); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+    .feature-section h3 .num { width: 32px; height: 32px; background: var(--primary); color: #fff; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; }
+    .feature-section p { color: var(--text-secondary); margin-bottom: 12px; }
+    .feature-section table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px; }
+    .feature-section th, .feature-section td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+    .feature-section th { background: var(--bg-page); font-weight: 600; }
+    .feature-section td { color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">HX3110 操作指南</a>
+    <ul class="nav-links">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="quickstart.html">快速上手</a></li>
+      <li><a href="features.html" class="active">功能详解</a></li>
+      <li><a href="workflows.html">场景工作流</a></li>
+      <li><a href="faq.html">常见问题</a></li>
+      <li><a href="downloads.html">下载中心</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="page-content">
+  <h2>功能详解</h2>
+  <p>BVM-HX3110 各项功能的详细说明与操作路径</p>
+
+  <div class="feature-section">
+    <h3><span class="num">1</span>通道与输入源设置</h3>
+    <p>HX3110 支持为每个通道独立配置输入信号和画面参数，通过 CH SELECT 按钮快速切换。</p>
+    <table>
+      <tr><th>输入接口</th><th>信号类型</th><th>通道数</th></tr>
+      <tr><td>SDI IN 1-4</td><td>12G/6G/3G/HD-SDI</td><td>Single Link: 4ch / Dual Link: 2ch / Quad Link: 1ch</td></tr>
+      <tr><td>HDMI IN</td><td>HDMI (含 HDCP)</td><td>1ch</td></tr>
+      <tr><td>IP Input 1/3</td><td>SMPTE ST 2110 (4K/2K)</td><td>2ch</td></tr>
+      <tr><td>IP Input 2/4</td><td>SMPTE ST 2110 (2K)</td><td>2ch</td></tr>
+    </table>
+    <p style="margin-top: 12px;"><strong>操作路径：</strong>User Preset Setting → Ch. Setting → Input Select</p>
+    <p style="margin-top: 8px; font-size: 13px; color: var(--text-muted);">4K/2K SDI Input1 和 Input3 自动区分 4K 和 2K 信号。IP 输入需预先在 IP Input Config. 中配置。</p>
+  </div>
+
+  <div class="feature-section">
+    <h3><span class="num">2</span>EOTF（伽马曲线）设置</h3>
+    <p>根据输入信号的伽马特性选择对应的 EOTF，确保正确还原画面亮度层次。</p>
+    <table>
+      <tr><th>EOTF 选项</th><th>适用场景</th></tr>
+      <tr><td>2.2 / 2.4 / 2.6 / CRT</td><td>SDR 内容制作</td></tr>
+      <tr><td>2.4(HDR)</td><td>HDR 显示模式</td></tr>
+      <tr><td>S-Log3</td><td>Sony S-Log3 素材监看</td></tr>
+      <tr><td>SMPTE ST 2084</td><td>PQ HDR 标准（电影/高端制作）</td></tr>
+      <tr><td>ITU-R BT.2100(HLG)</td><td>HLG HDR 标准（广播电视）</td></tr>
+      <tr><td>S-Log3(Live HDR)</td><td>Sony Live HDR 工作流专用</td></tr>
+    </table>
+    <p style="margin-top: 12px;"><strong>操作路径：</strong>User Preset Setting → Ch. Setting → EOTF</p>
+    <p style="margin-top: 8px; font-size: 13px; color: var(--text-muted);">选择 HLG 时，可为每个峰值亮度档位（400~4000 nit）单独设置 System Gamma。选择 S-Log3(Live HDR) 时，用于评价与传统 SDR 环境监看的兼容性。</p>
+  </div>
+
+  <div class="feature-section">
+    <h3><span class="num">3</span>色彩空间与传输矩阵</h3>
+    <p>选择与输入信号匹配的色彩空间，确保色域正确还原。</p>
+    <table>
+      <tr><th>色彩空间</th><th>典型用途</th></tr>
+      <tr><td>ITU-R BT.709</td><td>高清/标清广播电视</td></tr>
+      <tr><td>S-Gamut / S-Gamut3</td><td>Sony 摄影机广色域素材</td></tr>
+      <tr><td>S-Gamut3.Cine</td><td>Sony 数字电影摄影机</td></tr>
+      <tr><td>DCI-P3</td><td>数字影院放映</td></tr>
+      <tr><td>ITU-R BT.2020</td><td>4K/HDR 超高清广播</td></tr>
+      <tr><td>SMPTE-C / EBU</td><td>传统标清制式兼容</td></tr>
+    </table>
+    <p style="margin-top: 12px;"><strong>传输矩阵：</strong>Color Space 为 BT.2020 时自动选 BT.2020 矩阵；为 BT.709 时自动选 BT.709 矩阵；其他情况需手动匹配信号源的矩阵设置。</p>
+    <p style="margin-top: 8px;"><strong>操作路径：</strong>User Preset Setting → Ch. Setting → Color Space / Transfer Matrix</p>
+  </div>
+
+  <div class="feature-section">
+    <h3><span class="num">4</span>色温与色彩调节</h3>
+    <p>提供标准色温预设和手动微调功能。</p>
+    <table>
+      <tr><th>色温预设</th><th>说明</th></tr>
+      <tr><td>D65 / D93 / D60 / D50</td><td>标准 daylight 色温（已针对 Sony 监视器做光谱偏置补偿）</td></tr>
+      <tr><td>DCI / DCI XYZ</td><td>数字影院标准（XYZ 格式信号固定为此）</td></tr>
+      <tr><td>User1 ~ User10</td><td>自定义色温，通过 R/G/B Gain 和 Bias 手动调整</td></tr>
+    </table>
+    <p style="margin-top: 12px;"><strong>快捷调节：</strong>按前面板 MANUAL 按钮后，转动 CHROMA（色度）、BRIGHTNESS（亮度）、CONTRAST（对比度）旋钮实时调节。默认值 1000/0/400。</p>
+    <p style="margin-top: 8px;"><strong>操作路径：</strong>User Preset Setting → Ch. Setting → Color Temp / Chr./Bright./Cont.</p>
+  </div>
+
+  <div class="feature-section">
+    <h3><span class="num">5</span>波形图与监测工具</h3>
+    <p>内置专业波形监视器，无需外接设备即可分析信号。</p>
+    <table>
+      <tr><th>工具</th><th>功能</th></tr>
+      <tr><td>WFM（波形图）</td><td>亮度电平分布监测，支持 Line Select 定位单线</td></tr>
+      <tr><td>Vector Scope（矢量图）</td><td>色彩相位与饱和度分析</td></tr>
+      <tr><td>CGS（色域图）</td><td>色域范围可视化</td></tr>
+      <tr><td>False Color（伪色）</td><td>亮度区间映射为不同颜色，快速曝光判断</td></tr>
+      <tr><td>Gamut Marker（色域标记）</td><td>超出色域范围的部分以斑马纹显示</td></tr>
+      <tr><td>Camera Focus（聚焦辅助）</td><td>高亮显示锐利边缘，辅助对焦</td></tr>
+    </table>
+    <p style="margin-top: 12px;"><strong>操作路径：</strong>Monitoring Tool 菜单 → Scopes / WFM/VS/CGS / False Color 等</p>
+    <p style="margin-top: 8px; font-size: 13px; color: var(--text-muted);">注：WFM/VS/CGS 仅支持分辨率 ≥1280×720 的信号；Camera Focus 仅支持 ≥1920×1080。</p>
+  </div>
+
+  <div class="feature-section">
+    <h3><span class="num">6</span>多画面显示</h3>
+    <p>单屏同时监看 2 路或 4 路信号，对比不同环节画面。</p>
+    <table>
+      <tr><th>模式</th><th>显示方式</th><th>适用场景</th></tr>
+      <tr><td>Quad View（四画面）</td><td>2×2 网格，显示 A/B/C/D 四路输入</td><td>多机位监看（不支持 4K 信号）</td></tr>
+      <tr><td>Side by Side（双画面）</td><td>左右并排，显示 A/B 两路输入</td><td>调色前后对比、不同版本对比</td></tr>
+    </table>
+    <p style="margin-top: 12px;"><strong>操作路径：</strong>Multi View 菜单 → Quad View / Side by Side</p>
+    <p style="margin-top: 8px; font-size: 13px; color: var(--text-muted);">Quad View 和 Side by Side 模式下，画面 A 的音频信号被输出，时间码也仅显示画面 A 的。</p>
+  </div>
+
+  <div class="feature-section">
+    <h3><span class="num">7</span>标记器与辅助显示</h3>
+    <p>提供多种画面辅助标记，帮助构图和安全区确认。</p>
+    <table>
+      <tr><th>功能</th><th>说明</th></tr>
+      <tr><td>Aspect Marker</td><td>画面比例标记（可自定义宽高比）</td></tr>
+      <tr><td>Area Marker 1/2</td><td>自定义区域标记框</td></tr>
+      <tr><td>Center Marker</td><td>中心十字标记</td></tr>
+      <tr><td>Asp. Blank.-Half / -Black</td><td>非标准比例画面的遮幅显示</td></tr>
+      <tr><td>Grid Display</td><td>网格线叠加，辅助构图对齐</td></tr>
+      <tr><td>Time Code</td><td>时间码显示（支持 VITC/LTC）</td></tr>
+      <tr><td>Closed Caption</td><td>隐藏式字幕显示（仅 HDMI/SDI Single Link）</td></tr>
+    </table>
+    <p style="margin-top: 12px;"><strong>操作路径：</strong>User Preset Setting → Marker Preset / Monitoring Tool → Grid Display / Metadata/Textdata → Time Code</p>
+  </div>
+</div>
+<footer class="footer">
+  <div class="footer-inner">
+    <div>&copy; 2026 BVM-HX3110 操作指南 | 基于索尼官方资料整理</div>
+    <ul class="footer-links">
+      <li><a href="https://www.sonystyle.com.cn/professional/products/broadcast-and-production/broadcast-monitors/broadcastpromonitors/bvm-hx3100.html" target="_blank">索尼官网产品页</a></li>
+      <li><a href="faq.html">常见问题</a></li>
+      <li><a href="downloads.html">下载中心</a></li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>

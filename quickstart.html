@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>快速上手 - BVM-HX3110 简易操作指南</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .page-content { max-width: 900px; margin: 0 auto; padding: 60px 24px; }
+    .page-content h2 { font-size: 28px; margin-bottom: 24px; }
+    .page-content h3 { font-size: 20px; margin: 36px 0 16px; color: var(--primary-dark); }
+    .page-content p { margin-bottom: 12px; color: var(--text-secondary); }
+    .step-box { background: var(--bg-card); border-radius: var(--radius); padding: 24px; margin: 20px 0; border-left: 4px solid var(--primary); box-shadow: var(--shadow); }
+    .step-box h4 { font-size: 16px; margin-bottom: 8px; }
+    .placeholder-img { width: 100%; height: 200px; background: var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); margin: 16px 0; }
+    .tips { background: var(--accent-light); border-radius: 8px; padding: 16px 20px; margin: 20px 0; }
+    .tips strong { color: var(--accent); }
+  </style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">HX3110 操作指南</a>
+    <ul class="nav-links">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="quickstart.html" class="active">快速上手</a></li>
+      <li><a href="features.html">功能详解</a></li>
+      <li><a href="workflows.html">场景工作流</a></li>
+      <li><a href="faq.html">常见问题</a></li>
+      <li><a href="downloads.html">下载中心</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="page-content">
+  <h2>快速上手</h2>
+  <p style="font-size: 16px;">4 个步骤完成从接线到正常监看。HX3110 具备自动识别功能，大部分参数不需要手动设置。</p>
+
+  <h3>步骤 1：连接电源与信号线</h3>
+  <div class="step-box">
+    <h4>电源连接</h4>
+    <p>将电源线插入监视器背面板 AC IN 插孔，然后将交流插头固定器安装到电源线上。</p>
+    <h4 style="margin-top: 16px;">SDI 信号连接（最常用）</h4>
+    <p>将 SDI 线缆接入背面板 SDI IN 连接器（BNC）。<br>支持 Single Link（4 通道）、Dual Link（2 通道）、Quad Link（1 通道），自动识别。</p>
+    <h4 style="margin-top: 16px;">HDMI 信号连接</h4>
+    <p>将 HDMI 线缆接入背面板 HDMI IN 连接器。4K 信号请使用 3 米以内带 Premium High Speed 标识的线缆。</p>
+    <h4 style="margin-top: 16px;">IP 信号连接（HX3110/HX1710N）</h4>
+    <p>将 SFP28 收发器模块装入 LAN 1/LAN 2 插槽，接入 IP 流信号。需预先在菜单中配置 IP 输入参数。</p>
+    <div class="placeholder-img">[背面板接口示意图]</div>
+  </div>
+
+  <div class="tips">
+    <strong>提示：</strong>12G-SDI/6G-SDI 建议使用 Canare L-5.5CUHD 或同等电缆，长度不超过 70 米。
+  </div>
+
+  <h3>步骤 2：开机</h3>
+  <div class="step-box">
+    <h4>打开主电源</h4>
+    <p>按下背面板主电源开关（），前面板电源指示灯亮为红色。</p>
+    <h4 style="margin-top: 16px;">打开监视器</h4>
+    <p>按下前面板 （电源）开关，指示灯由红变绿，屏幕点亮。</p>
+    <p style="margin-top: 8px; color: var(--text-muted); font-size: 13px;">注意：无输入信号持续 60 分钟会自动关机，可在 System → System Setting → Auto Power Down 中修改。</p>
+  </div>
+
+  <h3>步骤 3：选择通道与输入源</h3>
+  <div class="step-box">
+    <h4>切换通道</h4>
+    <p>按前面板 CH SELECT 按钮，旋转 SELECT/ENTER 控制钮选择通道，按控制钮确认切换。</p>
+    <h4 style="margin-top: 16px;">配置输入源</h4>
+    <p>进入 User Preset Setting → Ch. Setting → Input Select，选择对应的输入接口：</p>
+    <ul style="margin-left: 20px; color: var(--text-secondary); font-size: 14px;">
+      <li>4K/2K SDI Input1 / Input3 — 自动识别 4K/2K</li>
+      <li>4K SDI Input1,2,3&4 — Quad Link 4K</li>
+      <li>2K SDI Input1~Input4 — 单通道 2K</li>
+      <li>HDMI — HDMI 信号</li>
+      <li>4K/2K IP Input1 / Input3 — IP 流（需预先配置）</li>
+    </ul>
+  </div>
+
+  <h3>步骤 4：打开自动识别（最关键）</h3>
+  <div class="step-box">
+    <p style="color: var(--text-primary); font-weight: 500;">HX3110 内置自动识别功能，打开后监视器会根据输入信号自动配置大部分画面参数，不需要手动逐项设置。</p>
+
+    <h4 style="margin-top: 16px;">① VPID/HDMI Auto — 自动识别信号格式</h4>
+    <p>打开后，监视器自动从输入信号中读取并设置以下参数：</p>
+    <ul style="margin-left: 20px; color: var(--text-secondary); font-size: 14px;">
+      <li><strong>EOTF</strong>（伽马曲线）— 自动识别 PQ / HLG / S-Log3 / 2.4 等</li>
+      <li><strong>Color Space</strong>（色彩空间）— 自动识别 BT.709 / BT.2020 / DCI-P3 等</li>
+      <li><strong>Transfer Matrix</strong>（传输矩阵）— 自动匹配</li>
+      <li><strong>RGB/YCC Range</strong> — 自动识别 Full / Limited</li>
+    </ul>
+    <p style="margin-top: 8px;"><strong>设置路径：</strong>User Preset Setting → Ch. Setting → VPID/HDMI Auto → <strong>On</strong></p>
+
+    <h4 style="margin-top: 16px;">② SR Live Auto — HDR 制作自动配置</h4>
+    <p>如果你在做 HDR 内容（尤其是 Sony 摄影机拍摄的素材），打开此选项后：</p>
+    <ul style="margin-left: 20px; color: var(--text-secondary); font-size: 14px;">
+      <li>自动读取信号中的 <strong>SR Live Metadata</strong></li>
+      <li>自动配置 HDR→SDR 转换所需的 EOTF、Color Space、Transfer Matrix</li>
+      <li>自动应用转换预设（Conv. Preset）</li>
+    </ul>
+    <p style="margin-top: 8px;"><strong>设置路径：</strong>User Preset Setting → Ch. Setting → SR Live Auto → <strong>On</strong></p>
+    <p style="margin-top: 8px; font-size: 13px; color: var(--text-muted);">注：当 VPID/HDMI Auto 和 SR Live Auto 同时为 On 时，SR Live Auto 优先。</p>
+
+    <h4 style="margin-top: 16px;">③ SDI 输入自动识别</h4>
+    <p>进入 System → System Setting → SDI In. Setting，将以下两项设为 <strong>Auto</strong>：</p>
+    <ul style="margin-left: 20px; color: var(--text-secondary); font-size: 14px;">
+      <li><strong>Image Division</strong> — 自动识别 4K 信号的图像分割方式（2SI / Square）</li>
+      <li><strong>Signal Format</strong> — 自动识别信号采样格式（422 YCbCr 10bit / 444 RGB 10bit 等）</li>
+    </ul>
+    <p style="margin-top: 8px;"><strong>设置路径：</strong>System → System Setting → SDI In. Setting → Image Division: Auto / Signal Format: Auto</p>
+  </div>
+
+  <div class="tips">
+    <strong>一句话总结：</strong>打开 VPID/HDMI Auto 和 SR Live Auto，接好线、选对输入源，监视器自己就能认出来信号是什么格式，画面参数自动配好。
+  </div>
+
+  <h3>步骤 5：确认画面正常</h3>
+  <div class="step-box">
+    <p>打开自动识别后，画面应该已经正常显示。检查以下几点：</p>
+    <ul style="margin-left: 20px; color: var(--text-secondary); font-size: 14px;">
+      <li>画面是否有信号？没有信号检查线缆连接和输入源选择</li>
+      <li>色彩是否看起来正常？如果偏色严重，可能是自动识别失败，需要手动检查 EOTF 和 Color Space</li>
+      <li>亮度是否合适？环境光较强时可适当提高 Brightness，但不要影响调色准确性</li>
+    </ul>
+    <p style="margin-top: 12px;">如需查看当前自动识别的参数值，按 MENU 键进入 User Preset Setting → Ch. Setting，各项参数会显示当前设置。</p>
+  </div>
+
+  <div class="tips">
+    <strong>什么时候需要手动设置？</strong><br>
+    1. 信号没有嵌入 VPID/HDMI 信息帧（部分老旧设备）<br>
+    2. 信号信息不明确或标记错误<br>
+    3. 使用特殊 LUT 或自定义色彩空间<br>
+    4. 需要与特定标准严格匹配（如调色监看需固定 DCI-P3 / Gamma 2.6）<br>
+    5. 做 HDR→SDR 转换时，Conv. Preset 需要手动微调<br>
+    手动设置方法详见 <a href="features.html">功能详解</a> 页面。
+  </div>
+
+  <div class="tips" style="background: #e8f5e9;">
+    <strong style="color: #2e7d32;">快捷操作：</strong>将常用功能分配给前面板 F1-F12 功能按钮，一键切换通道、开关波形图、切换标记等。设置路径：F Key Setting → Monitor (BVM-HX3110)。
+  </div>
+
+  <div style="text-align: center; margin-top: 48px;">
+    <a href="features.html" class="btn btn-primary" style="display: inline-flex;">下一步：深入了解各项功能 &rarr;</a>
+  </div>
+</div>
+<footer class="footer">
+  <div class="footer-inner">
+    <div>&copy; 2026 BVM-HX3110 操作指南 | 基于索尼官方资料整理</div>
+    <ul class="footer-links">
+      <li><a href="https://www.sonystyle.com.cn/professional/products/broadcast-and-production/broadcast-monitors/broadcastpromonitors/bvm-hx3100.html" target="_blank">索尼官网产品页</a></li>
+      <li><a href="faq.html">常见问题</a></li>
+      <li><a href="downloads.html">下载中心</a></li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,147 +1,692 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BVM-HX3110 简易操作指南</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sony BVM-HX3110 · 30.5" 4K TRIMASTER HX™ 专业主控监视器</title>
+    <meta name="description" content="索尼 BVM-HX3110 30.5 英寸 4K HDR 主控监视器,4000 cd/m² 峰值亮度,TRIMASTER HX 技术,集成 IP 支持,适合直播/调色/VFX 专业制作。">
+    <meta name="keywords" content="Sony,BVM-HX3110,4K监视器,HDR,TRIMASTER HX,主控监视器,广播监视器,索尼监视器">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2300D4FF'/%3E%3Ctext x='50' y='62' font-size='40' font-weight='900' text-anchor='middle' fill='%230A0E1A' font-family='Arial'%3ES%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 
-<!-- Navigation -->
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">HX3110 操作指南</a>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">首页</a></li>
-      <li><a href="quickstart.html">快速上手</a></li>
-      <li><a href="features.html">功能详解</a></li>
-      <li><a href="workflows.html">场景工作流</a></li>
-      <li><a href="faq.html">常见问题</a></li>
-      <li><a href="downloads.html">下载中心</a></li>
-    </ul>
-  </div>
-</nav>
+<!-- 滚动进度条 -->
+<div class="scroll-progress" id="scrollProgress"></div>
 
-<!-- Hero Section -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-content">
-      <h1>BVM-HX3110<br>简易操作指南</h1>
-      <p class="subtitle">30.5 英寸 4K HDR 基准监视器<br>TRIMASTER HX 技术 | 4000 nit 峰值亮度 | 双液晶面板</p>
-      <div class="hero-badges">
-        <span class="badge">4K UHD</span>
-        <span class="badge">HDR</span>
-        <span class="badge">4000 nit</span>
-        <span class="badge">双液晶面板</span>
-      </div>
-      <div class="hero-actions">
-        <a href="quickstart.html" class="btn btn-primary">快速上手</a>
-        <a href="features.html" class="btn btn-secondary">功能详解</a>
-        <a href="downloads.html" class="btn btn-secondary">下载中心</a>
-      </div>
+<!-- 顶部导航 -->
+<header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="#hero" class="nav-logo">
+            <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                <rect x="2" y="2" width="36" height="36" rx="6" stroke="currentColor" stroke-width="2"/>
+                <text x="20" y="26" text-anchor="middle" font-size="18" font-weight="900" fill="currentColor" font-family="Arial">S</text>
+            </svg>
+            <span class="logo-text">SONY <em>PRO</em></span>
+        </a>
+        <nav class="nav-menu" id="navMenu">
+            <a href="#overview" class="nav-link">概览</a>
+            <a href="#features" class="nav-link">特性</a>
+            <a href="#specs" class="nav-link">规格</a>
+            <a href="#licenses" class="nav-link">许可证</a>
+            <a href="#scenes" class="nav-link">场景</a>
+            <a href="#resources" class="nav-link">资源</a>
+        </nav>
+        <button class="nav-toggle" id="navToggle" aria-label="切换菜单">
+            <span></span><span></span><span></span>
+        </button>
     </div>
-    <div class="hero-image">
-      <img src="assets/images/hero.png" alt="BVM-HX3110 监视器">
+</header>
+
+<!-- ========== Hero 首屏 ========== -->
+<section class="hero" id="hero">
+    <div class="hero-bg">
+        <div class="hero-grid"></div>
+        <div class="hero-glow"></div>
     </div>
-  </div>
+    <div class="hero-container">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                <span>4K HDR 主控监视器 · 30.5 英寸</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">每一个</span>
+                <span class="title-line gradient-text">色调 · 细节 · 微妙之处</span>
+            </h1>
+            <p class="hero-subtitle">
+                Sony <strong>BVM-HX3110</strong> —— 30.5 英寸 4K TRIMASTER HX™ 专业主控监视器。
+                4000 cd/m² 峰值亮度、45° 宽视角、集成 IP 支持,
+                为直播、调色、VFX 而生的参考级显示器。
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-value gradient-text">4000</div>
+                    <div class="stat-unit">cd/m²</div>
+                    <div class="stat-label">峰值亮度</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <div class="stat-value gradient-text">4096<span class="stat-sub">×2160</span></div>
+                    <div class="stat-unit">4K</div>
+                    <div class="stat-label">分辨率</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <div class="stat-value gradient-text">45°</div>
+                    <div class="stat-unit">视角</div>
+                    <div class="stat-label">可观看角度</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <div class="stat-value gradient-text">1.07<span class="stat-sub">B</span></div>
+                    <div class="stat-unit">色彩</div>
+                    <div class="stat-label">10bit 显色</div>
+                </div>
+            </div>
+            <div class="hero-cta">
+                <a href="#specs" class="btn btn-primary">
+                    <span>查看完整规格</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#resources" class="btn btn-ghost">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                    <span>下载说明书</span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="hero-image-glow"></div>
+            <img src="assets/images/hero.png" alt="Sony BVM-HX3110" class="hero-product-img">
+        </div>
+    </div>
+    <div class="hero-scroll-hint">
+        <span>向下滚动</span>
+        <div class="scroll-line"></div>
+    </div>
 </section>
 
-<!-- Quick Entry Cards -->
-<section class="quick-entry">
-  <div class="section-header">
-    <h2>从这里开始</h2>
-    <p>根据你的需求，选择最适合的入口</p>
-  </div>
-  <div class="entry-grid">
-    <div class="entry-card">
-      <div class="entry-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#185FA5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-      </div>
-      <h3>快速上手</h3>
-      <p>开箱检查、连接安装、首次开机、基础设置，图文步骤适合第一次使用。</p>
-      <a href="quickstart.html" class="entry-link">开始上手 &rarr;</a>
+<!-- ========== 产品概览 / TRIMASTER HX 技术 ========== -->
+<section class="section overview" id="overview">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">01 · 核心技术</span>
+            <h2 class="section-title">TRIMASTER HX™ <span class="gradient-text">架构</span></h2>
+            <p class="section-desc">索尼专有的设计架构,充分发挥专业平板显示器的全部性能。核心科技带来业界领先的色彩精度、精准成像与画质一致性。</p>
+        </div>
+
+        <div class="overview-grid">
+            <div class="overview-text">
+                <h3>双层防反射 LCD 面板</h3>
+                <p>BVM-HX3110 配备索尼设计的双层防反射 LCD 面板,结合索尼专有信号处理技术,支持更高的峰值亮度、更快的像素响应与更宽的视角。EOTF 从深黑到高光的全范围准确跟踪,使其成为 BVM-HX310 之后专业用户信赖的参考标准。</p>
+                <ul class="feature-list">
+                    <li>
+                        <span class="list-icon" style="--c:var(--neon-cyan)">✓</span>
+                        <div><strong>双层 LCD 结构</strong><span>显著降低环境光反射,提升对比度</span></div>
+                    </li>
+                    <li>
+                        <span class="list-icon" style="--c:var(--neon-magenta)">✓</span>
+                        <div><strong>SORPLAS™ 再生塑料</strong><span>兼顾可持续发展与高性能</span></div>
+                    </li>
+                    <li>
+                        <span class="list-icon" style="--c:var(--neon-amber)">✓</span>
+                        <div><strong>防指纹涂层</strong><span>轻松擦除运输/安装时意外留下的指纹</span></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="overview-image">
+                <img src="assets/images/trimaster.png" alt="TRIMASTER HX 技术" class="img-fluid">
+            </div>
+        </div>
     </div>
-    <div class="entry-card">
-      <div class="entry-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#EF9F27" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
-      </div>
-      <h3>功能详解</h3>
-      <p>输入源切换、色彩空间设置、HDR/SDR 模式、波形图等所有功能的详细说明。</p>
-      <a href="features.html" class="entry-link">查看功能 &rarr;</a>
-    </div>
-    <div class="entry-card">
-      <div class="entry-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      </div>
-      <h3>下载中心</h3>
-      <p>用户手册 PDF、快速参考卡、固件、色彩配置文件等资源下载。</p>
-      <a href="downloads.html" class="entry-link">前往下载 &rarr;</a>
-    </div>
-  </div>
 </section>
 
-<!-- Highlights Section -->
-<section class="highlights">
-  <div class="highlights-inner">
-    <div class="section-header">
-      <h2>核心亮点</h2>
-      <p>BVM-HX3110 为专业制作带来的关键优势</p>
+<!-- ========== 核心特性 ========== -->
+<section class="section features" id="features">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">02 · 核心特性</span>
+            <h2 class="section-title">为<strong>专业制作</strong>而生的<span class="gradient-text">每一处突破</span></h2>
+            <p class="section-desc">从 4000 cd/m² 峰值亮度到集成 IP 支持,8 大核心特性重新定义 4K HDR 主控监视器。</p>
+        </div>
+
+        <div class="features-grid">
+            <article class="feature-card" data-color="cyan">
+                <div class="feature-num">01</div>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+                </div>
+                <h3>4000 cd/m² 峰值亮度</h3>
+                <p>4K HDR 主控监视器的色彩还原度达到新高度。调色师将看到微妙细节、柔和亮光与丰富色彩,即使在以往细节缺失的图像区域也能呈现深邃黑色与流畅的亮光衰减。</p>
+                <span class="feature-meta">D65 典型值 · 10% 白窗</span>
+            </article>
+
+            <article class="feature-card" data-color="magenta">
+                <div class="feature-num">02</div>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <h3>快速像素响应</h3>
+                <p>通过 BVML-F10 许可证激活的快速像素响应功能,非常适合体育直播和音乐制作。平移与倾斜运动显示更少模糊,滚动滚动条更易于阅读和检查。</p>
+                <span class="feature-meta">需 BVML-F10 许可证</span>
+            </article>
+
+            <article class="feature-card" data-color="amber">
+                <div class="feature-num">03</div>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                </div>
+                <h3>45° 宽视角</h3>
+                <p>借助索尼光学显示屏材料,新型主控监视器的实用观看角度拓宽到 45°,不影响丰富的对比度或高色彩还原度。多名工作人员可同时进行审片工作。</p>
+                <span class="feature-meta">0-45° 性能持续优化</span>
+            </article>
+
+            <article class="feature-card" data-color="cyan">
+                <div class="feature-num">04</div>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <h3>改进的防反光</h3>
+                <p>先进的防反光处理采用光波抵消技术,与音频降噪技术原理相似。消除投射到屏幕上的环境光,带来更出色的对比度、更清晰的图像,对分辨率影响极小。</p>
+                <span class="feature-meta">双层 AR 涂层</span>
+            </article>
+
+            <article class="feature-card" data-color="magenta">
+                <div class="feature-num">05</div>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M7 8h4M7 12h6"/></svg>
+                </div>
+                <h3>集成 IP 支持</h3>
+                <p>无缝集成到 IP 制作,支持 ST2110-20/21/22/30/40、NMOS IS04/IS05、净切换、无中断故障切换和 PTP。Web 菜单让 IP 接口配置变得简单,支持直接 IP 信号输入,无需 IP-SDI 转换器。</p>
+                <span class="feature-meta">ST2110 · NMOS · PTP</span>
+            </article>
+
+            <article class="feature-card" data-color="amber">
+                <div class="feature-num">06</div>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+                </div>
+                <h3>四分屏 + Pixel Zoom</h3>
+                <p>即时比较多达四组自定义显示设置,包括 EOTF、色彩空间、传输矩阵、色温、对比度、亮度和色度。V2.0 固件引入像素缩放,最大 300% 无损放大,用于死像素和焦点精确检查。</p>
+                <span class="feature-meta">300% 无损放大</span>
+            </article>
+
+            <article class="feature-card" data-color="cyan">
+                <div class="feature-num">07</div>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg>
+                </div>
+                <h3>用户 3D LUT</h3>
+                <p>通过按钮即可检查不同的 LUT。从 U 盘或其他 EOTF 加载自定义 LUT 进行调色前比较。高质量四面体插值让您能使用 LUT 进行 HDR-SDR 转换,与原片并排查看。</p>
+                <span class="feature-meta">四面体插值算法</span>
+            </article>
+
+            <article class="feature-card" data-color="magenta">
+                <div class="feature-num">08</div>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 14h16M4 10h16M4 18h16M4 6h16"/><circle cx="7" cy="14" r="1"/><circle cx="12" cy="10" r="1"/><circle cx="17" cy="18" r="1"/></svg>
+                </div>
+                <h3>HDR-SDR 转换器</h3>
+                <p>实现 4K/HD HDR 视频和 HD SDR 视频的同步制作。可选购许可证,当监看 SDR 或 HDR 信号时,承担 SDR 调色工作,使图像不存在饱和的亮光区域或挤压的暗光区域。</p>
+                <span class="feature-meta">需 BVML-H10/S10/T10</span>
+            </article>
+        </div>
     </div>
-    <div class="highlight-grid">
-      <div class="highlight-card">
-        <img src="assets/images/peak.png" alt="4000 nit 峰值亮度">
-        <h4>4000 nit 峰值亮度</h4>
-        <p>超高亮度精准还原 HDR 高光细节，满足最严苛的 HDR 内容制作需求。</p>
-      </div>
-      <div class="highlight-card">
-        <img src="assets/images/response.png" alt="快速响应">
-        <h4>快速像素响应</h4>
-        <p>高速响应消除运动模糊，确保快速运动画面的清晰度和准确性。</p>
-      </div>
-      <div class="highlight-card">
-        <img src="assets/images/viewing.png" alt="宽视角">
-        <h4>宽视角一致性</h4>
-        <p>从不同角度观看依然保持色彩和亮度的一致性，团队协作更高效。</p>
-      </div>
-      <div class="highlight-card">
-        <img src="assets/images/quadview.png" alt="四画面显示">
-        <h4>四画面显示</h4>
-        <p>支持同时显示 4 路信号，多机位监看、对比调色一手掌控。</p>
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- Scene Workflow Preview -->
-<section class="scene-preview">
-  <div class="section-header">
-    <h2>场景工作流</h2>
-    <p>针对不同应用场景，提供一键式参数配置参考</p>
-  </div>
-  <div class="scene-grid">
-    <div class="scene-tag">调色监看</div>
-    <div class="scene-tag">HDR 内容制作</div>
-    <div class="scene-tag">现场制播</div>
-    <div class="scene-tag">SDR 兼容模式</div>
-    <div class="scene-tag">4K 播出质控</div>
-  </div>
-  <div style="text-align: center; margin-top: 24px;">
-    <a href="workflows.html" class="btn btn-primary" style="display: inline-flex;">查看全部场景配置 &rarr;</a>
-  </div>
+<!-- ========== 完整规格表 ========== -->
+<section class="section specs" id="specs">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">03 · 完整规格</span>
+            <h2 class="section-title"><span class="gradient-text">技术参数</span>一览</h2>
+            <p class="section-desc">点击分组展开详细参数,使用搜索框快速查找。</p>
+        </div>
+
+        <div class="specs-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" id="specSearch" placeholder="搜索参数,如 'SDI'、'亮度'、'分辨率'..." autocomplete="off">
+            <button class="search-clear" id="searchClear" aria-label="清空">×</button>
+        </div>
+
+        <div class="specs-group" data-group="image">
+            <button class="specs-group-header">
+                <span class="group-title">
+                    <span class="group-icon">📐</span>图像性能
+                </span>
+                <span class="group-toggle">+</span>
+            </button>
+            <div class="specs-table">
+                <div class="spec-row" data-key="面板">
+                    <div class="spec-name">面板</div>
+                    <div class="spec-value">α-Si TFT 有源矩阵液晶屏</div>
+                </div>
+                <div class="spec-row" data-key="图像尺寸 30.5 英寸 775.2 毫米 对角线">
+                    <div class="spec-name">图像尺寸(对角线)</div>
+                    <div class="spec-value">30.5 英寸(775.2 毫米)</div>
+                </div>
+                <div class="spec-row" data-key="有效幅面 685.7 361.6 毫米 水平 垂直">
+                    <div class="spec-name">有效幅面(水平 × 垂直)</div>
+                    <div class="spec-value">685.7 × 361.6 毫米(27 × 14 1/4 英寸)</div>
+                </div>
+                <div class="spec-row" data-key="分辨率 4096 2160 4k">
+                    <div class="spec-name">分辨率(水平 × 垂直)</div>
+                    <div class="spec-value highlight">4096 × 2160 像素(4K)</div>
+                </div>
+                <div class="spec-row" data-key="宽高比 17:9 1.90">
+                    <div class="spec-name">宽高比</div>
+                    <div class="spec-value">1.90 : 1(17:9)</div>
+                </div>
+                <div class="spec-row" data-key="有效像素 99.99">
+                    <div class="spec-name">有效像素比例</div>
+                    <div class="spec-value">99.99%</div>
+                </div>
+                <div class="spec-row" data-key="显示颜色 10.7 10bit">
+                    <div class="spec-name">显示颜色</div>
+                    <div class="spec-value">10.7 亿色</div>
+                </div>
+                <div class="spec-row" data-key="面板帧率 96 100 120 hz">
+                    <div class="spec-name">面板帧率</div>
+                    <div class="spec-value">96Hz / 100Hz / 120Hz(96Hz 和 120Hz 也兼容 1/1.001 帧率)</div>
+                </div>
+                <div class="spec-row" data-key="视角 89">
+                    <div class="spec-name">视角(面板规格)</div>
+                    <div class="spec-value">89°/89°/89°/89°(上/下/左/右对比度 > 10:1)</div>
+                </div>
+                <div class="spec-row" data-key="色温 D50 D60 D65 D93 DCI">
+                    <div class="spec-name">色温</div>
+                    <div class="spec-value">D50、D60、D65、D93、DCI,以及用户 1-10(可调节 5,000K - 10,000K),DCI XYZ</div>
+                </div>
+                <div class="spec-row" data-key="亮度 4000 1000 cd/m2">
+                    <div class="spec-name">亮度</div>
+                    <div class="spec-value highlight">4,000 cd/m²(典型,D65,10% 白窗)<br>1,000 cd/m²(典型,全屏白)</div>
+                </div>
+                <div class="spec-row" data-key="色彩空间 bt2020 bt709 ebu smpte dci s-gamut">
+                    <div class="spec-name">色彩空间(色域)</div>
+                    <div class="spec-value">ITU-R BT.2020、ITU-R BT.709、EBU、SMPTE-C、DCI-P3、S-Gamut3、S-Gamut3.Cine</div>
+                </div>
+                <div class="spec-row" data-key="传输矩阵 bt2020 bt709">
+                    <div class="spec-name">传输矩阵</div>
+                    <div class="spec-value">ITU-R BT.2020(支持非恒定亮度),ITU-R BT.709</div>
+                </div>
+                <div class="spec-row" data-key="eotf 2.2 2.4 2.6 pq hlg s-log3 smpte st 2084">
+                    <div class="spec-name">EOTF</div>
+                    <div class="spec-value">2.2、2.4、2.6、阴极射线管、2.4 (HDR)、S-Log3、S-Log3(实时 HDR)、SMPTE ST 2084、ITU-BT.2100 (HLG)</div>
+                </div>
+                <div class="spec-row" data-key="预热 30 分钟">
+                    <div class="spec-name">预热时间</div>
+                    <div class="spec-value">约 30 分钟。为保持稳定图像质量,请开机超过 30 分钟</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="specs-group" data-group="input">
+            <button class="specs-group-header">
+                <span class="group-title">
+                    <span class="group-icon">📥</span>输入接口
+                </span>
+                <span class="group-toggle">+</span>
+            </button>
+            <div class="specs-table">
+                <div class="spec-row" data-key="sdi 12g 6g 3g hd bnc">
+                    <div class="spec-name">SDI 输入</div>
+                    <div class="spec-value">(12G/6G/3G/HD-SDI) BNC ×2<br>(3G/HD-SDI) BNC ×2<br>输入电阻:75Ω 不平衡</div>
+                </div>
+                <div class="spec-row" data-key="hdmi hdcp">
+                    <div class="spec-name">HDMI 输入</div>
+                    <div class="spec-value">HDMI(HDCP2.3/1.4) ×1</div>
+                </div>
+                <div class="spec-row" data-key="ip sfp28 25g lan 网络">
+                    <div class="spec-name">IP (LAN)</div>
+                    <div class="spec-value">SFP28 ×2,25G BASE<br>支持索尼 OTM-25GSR / OTM-25GLR 收发器</div>
+                </div>
+                <div class="spec-row" data-key="并行控制 rj45">
+                    <div class="spec-name">并行控制</div>
+                    <div class="spec-value">RJ-45 8 针 ×1(固定针分配)</div>
+                </div>
+                <div class="spec-row" data-key="串行遥控 10base 100base rj45 以太网">
+                    <div class="spec-name">串行遥控(LAN)</div>
+                    <div class="spec-value">以太网,10BASE-T/100BASE-TX RJ-45 ×1</div>
+                </div>
+                <div class="spec-row" data-key="usb 2.0">
+                    <div class="spec-name">USB 输入</div>
+                    <div class="spec-value">USB(USB2.0)接口 ×1</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="specs-group" data-group="output">
+            <button class="specs-group-header">
+                <span class="group-title">
+                    <span class="group-icon">📤</span>输出接口
+                </span>
+                <span class="group-toggle">+</span>
+            </button>
+            <div class="specs-table">
+                <div class="spec-row" data-key="emo 增强监视器输出 sdi">
+                    <div class="spec-name">增强监视器输出 (EMO)</div>
+                    <div class="spec-value">(12G/6G/3G/HD-SDI) BNC ×1<br>输出电阻:75Ω 不平衡<br>需 BVML-H10/S10/T10 许可证</div>
+                </div>
+                <div class="spec-row" data-key="sdi 输出">
+                    <div class="spec-name">SDI 输出</div>
+                    <div class="spec-value">(12G/6G/3G/HD-SDI) BNC ×2<br>(3G/HD-SDI) BNC ×2<br>输出电阻:75Ω 不平衡</div>
+                </div>
+                <div class="spec-row" data-key="音频 监视器">
+                    <div class="spec-name">音频监视器输出</div>
+                    <div class="spec-value">小型立体声插孔 ×1</div>
+                </div>
+                <div class="spec-row" data-key="耳机">
+                    <div class="spec-name">耳机输出</div>
+                    <div class="spec-value">小型立体声插孔 ×1</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="specs-group" data-group="general">
+            <button class="specs-group-header">
+                <span class="group-title">
+                    <span class="group-icon">⚙️</span>一般规格
+                </span>
+                <span class="group-toggle">+</span>
+            </button>
+            <div class="specs-table">
+                <div class="spec-row" data-key="电源 100 240 ac 50 60">
+                    <div class="spec-name">电源要求</div>
+                    <div class="spec-value">AC 100V - 240V,6.6A - 2.5A,50/60Hz</div>
+                </div>
+                <div class="spec-row" data-key="功耗 610 w">
+                    <div class="spec-name">功耗</div>
+                    <div class="spec-value">约 610 W(最大值)</div>
+                </div>
+                <div class="spec-row" data-key="工作温度 0 35">
+                    <div class="spec-name">工作温度</div>
+                    <div class="spec-value">0°C ~ 35°C(建议 20°C ~ 30°C)</div>
+                </div>
+                <div class="spec-row" data-key="工作湿度 30 85">
+                    <div class="spec-name">工作湿度</div>
+                    <div class="spec-value">30% ~ 85%(无冷凝)</div>
+                </div>
+                <div class="spec-row" data-key="储存 运输 温度 湿度 压力">
+                    <div class="spec-name">储存/运输</div>
+                    <div class="spec-value">温度:-20°C ~ +60°C<br>湿度:10% ~ 80%<br>压力:700 hPa ~ 1060 hPa</div>
+                </div>
+                <div class="spec-row" data-key="尺寸 778 519 230 宽 高 深 毫米">
+                    <div class="spec-name">尺寸(宽 × 高 × 深)</div>
+                    <div class="spec-value highlight">778 × 519 × 230 mm<br>(30 3/4 × 20 1/2 × 9 1/8 英寸)</div>
+                </div>
+                <div class="spec-row" data-key="质量 重量 29 kg 千克">
+                    <div class="spec-name">质量</div>
+                    <div class="spec-value highlight">约 29 kg</div>
+                </div>
+                <div class="spec-row" data-key="标准配件 电源线 插头 说明书">
+                    <div class="spec-name">标准配件</div>
+                    <div class="spec-value">交流电源线 ×1、交流插头插座 ×1、装置使用前须知 ×1</div>
+                </div>
+                <div class="spec-row" data-key="保修 5 年">
+                    <div class="spec-name">保修</div>
+                    <div class="spec-value">5 年标准保修</div>
+                </div>
+            </div>
+        </div>
+
+        <p class="specs-note">* DCI: x=0.314, y=0.351<br>
+        * 该亮度值为 D65 典型值,有 10% 白窗,不予以保证<br>
+        * 面板规格(全屏白色信号)为 D65 典型值,不予保证<br>
+        * BVM-HX3110 未完整覆盖选定的色彩空间<br>
+        * 不支持铜质 DAC(直接连接电缆)</p>
+    </div>
 </section>
 
-<!-- Footer -->
+<!-- ========== 可选许可证 ========== -->
+<section class="section licenses" id="licenses">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">04 · 可选许可证</span>
+            <h2 class="section-title">按需<strong>扩展</strong>制作能力</h2>
+            <p class="section-desc">6 款 BVML 系列许可证,从快速响应到 IP 解码,按工作流灵活配置。</p>
+        </div>
+
+        <div class="licenses-grid">
+            <article class="license-card" data-color="cyan">
+                <div class="license-tag">F10</div>
+                <h3>BVML-F10</h3>
+                <p class="license-sub">快速响应许可证</p>
+                <p>激活 BVM-HX3110 的快速像素响应功能,大幅减少运动模糊。非常适合体育直播和音乐制作,滚动滚动条更清晰可读。</p>
+                <ul class="license-suitable">
+                    <li>体育赛事直播</li>
+                    <li>音乐节目制作</li>
+                    <li>动态画面监看</li>
+                </ul>
+            </article>
+
+            <article class="license-card" data-color="magenta">
+                <div class="license-tag">H10</div>
+                <h3>BVML-H10</h3>
+                <p class="license-sub">HDR-SDR 转换输出许可证</p>
+                <p>同时支持索尼 HDR-SDR、3D LUT 和 4K-HD 转换。在监看 SDR 或 HDR 信号时,自动承担 SDR 调色工作,确保图像亮光区域不过曝、暗部细节不丢失。</p>
+                <ul class="license-suitable">
+                    <li>HDR/SDR 同步制作</li>
+                    <li>3D LUT 烘焙输出</li>
+                    <li>4K 到 HD 下变换</li>
+                </ul>
+            </article>
+
+            <article class="license-card" data-color="amber">
+                <div class="license-tag">S10</div>
+                <h3>BVML-S10</h3>
+                <p class="license-sub">信号转换输出许可证</p>
+                <p>支持 3D LUT 和 4K-HD 转换输出。屏幕显示和转换输出可独立工作,确保切换显示时仍依赖同一信号输出。可对 IP 输入信号应用转换。</p>
+                <ul class="license-suitable">
+                    <li>3D LUT 处理</li>
+                    <li>4K-HD 转换</li>
+                    <li>IP 信号处理</li>
+                </ul>
+            </article>
+
+            <article class="license-card" data-color="cyan">
+                <div class="license-tag">T10</div>
+                <h3>BVML-T10</h3>
+                <p class="license-sub">3D LUT 输出许可证</p>
+                <p>仅支持 3D LUT 转换。适合只需 LUT 烘焙输出、不需要 HDR-SDR 全套转换的场景。提供高性价比的 LUT 工作流。</p>
+                <ul class="license-suitable">
+                    <li>纯 LUT 烘焙</li>
+                    <li>现场调色预览</li>
+                    <li>成本敏感项目</li>
+                </ul>
+            </article>
+
+            <article class="license-card" data-color="magenta">
+                <div class="license-tag">JD10</div>
+                <h3>BVML-JD10</h3>
+                <p class="license-sub">JPEG XS 解码器许可证</p>
+                <p>为 IP 工作流添加 JPEG XS 解码能力。支持低延迟、轻量化的 IP 视频传输,适合远程制作和分布式工作流。</p>
+                <ul class="license-suitable">
+                    <li>IP 远程制作</li>
+                    <li>低延迟传输</li>
+                    <li>分布式工作流</li>
+                </ul>
+            </article>
+
+            <article class="license-card" data-color="amber">
+                <div class="license-tag">SN10</div>
+                <h3>BVML-SN10</h3>
+                <p class="license-sub">SNMP 许可证</p>
+                <p>为监视器添加 SNMP 网络管理协议支持,便于集成到大型设备监控系统中,实现远程状态查询、告警和参数配置。</p>
+                <ul class="license-suitable">
+                    <li>系统集成</li>
+                    <li>远程监控</li>
+                    <li>设备统一管理</li>
+                </ul>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ========== 应用场景 ========== -->
+<section class="section scenes" id="scenes">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">05 · 应用场景</span>
+            <h2 class="section-title">从<strong>现场</strong>到<strong>后期</strong>,全覆盖专业制作</h2>
+        </div>
+        <div class="scenes-grid">
+            <div class="scene-card" data-color="cyan">
+                <div class="scene-icon">📺</div>
+                <h3>现场直播</h3>
+                <p>电视台直播、转播车、移动演播室的主控信号监看,保证播出画质。</p>
+            </div>
+            <div class="scene-card" data-color="magenta">
+                <div class="scene-icon">🎨</div>
+                <h3>调色 / 后期</h3>
+                <p>为调色师提供参考级监看,准确呈现 HDR 内容与广色域画面。</p>
+            </div>
+            <div class="scene-card" data-color="amber">
+                <div class="scene-icon">✨</div>
+                <h3>VFX 视觉特效</h3>
+                <p>合成、CG 渲染监看,精确控制合成效果的色彩与亮度一致性。</p>
+            </div>
+            <div class="scene-card" data-color="cyan">
+                <div class="scene-icon">⚽</div>
+                <h3>体育赛事</h3>
+                <p>配合 BVML-F10 快速响应,清晰显示高速运动画面,滚动条无拖影。</p>
+            </div>
+            <div class="scene-card" data-color="magenta">
+                <div class="scene-icon">🎵</div>
+                <h3>音乐 / 演唱会</h3>
+                <p>高亮度 + 快速响应让舞台画面更具冲击力,导演与导播精准监看。</p>
+            </div>
+            <div class="scene-card" data-color="amber">
+                <div class="scene-icon">🎬</div>
+                <h3>虚拟制作</h3>
+                <p>LED 墙虚拟拍摄时,作为参考监视器确保合成画面与实拍元素匹配。</p>
+            </div>
+            <div class="scene-card" data-color="cyan">
+                <div class="scene-icon">📰</div>
+                <h3>新闻演播室</h3>
+                <p>新闻直播、专题报道的实时监看,IP 集成便于多机位信号统一管理。</p>
+            </div>
+            <div class="scene-card" data-color="magenta">
+                <div class="scene-icon">🌐</div>
+                <h3>Networked Live</h3>
+                <p>完美兼容索尼 Networked Live 生态,适配远程分布式制作流程。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== 资源下载 ========== -->
+<section class="section resources" id="resources">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">06 · 资源下载</span>
+            <h2 class="section-title">获取<strong>官方资料</strong></h2>
+            <p class="section-desc">从索尼中国/全球官网下载完整说明书、规格书等。</p>
+        </div>
+        <div class="resources-grid">
+            <a class="resource-card" href="https://www.sony.com/electronics/support/res/manuals/5054/9c57081cef5cc51db7900775c5b63d47/50542156M.pdf" target="_blank" rel="noopener">
+                <div class="resource-icon">📕</div>
+                <div class="resource-info">
+                    <h3>简体中文说明书</h3>
+                    <p>完整操作指南(繁体中文版)</p>
+                    <span class="resource-size">PDF · 索尼官方</span>
+                </div>
+                <svg class="resource-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </a>
+            <a class="resource-card" href="https://www.sony.com/electronics/support/res/manuals/5054/5bb4d82a422ff98cf0482c682d7e7643/50542151M.pdf" target="_blank" rel="noopener">
+                <div class="resource-icon">📗</div>
+                <div class="resource-info">
+                    <h3>English Manual</h3>
+                    <p>Operating Instructions (English, 9.9 MB)</p>
+                    <span class="resource-size">PDF · 2025-06-05</span>
+                </div>
+                <svg class="resource-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </a>
+            <a class="resource-card" href="https://pro.sony.com.cn/products/broadcast-and-production/broadcast-monitors/broadcastpromonitors/bvm-hx3100.html" target="_blank" rel="noopener">
+                <div class="resource-icon">🌐</div>
+                <div class="resource-info">
+                    <h3>索尼中国官网</h3>
+                    <p>产品详细页 · 完整技术规格</p>
+                    <span class="resource-size">网页 · 官方</span>
+                </div>
+                <svg class="resource-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </a>
+            <a class="resource-card" href="https://pro.sony/ue_US/products/broadcastpromonitors/bvm-hx3110" target="_blank" rel="noopener">
+                <div class="resource-icon">🌍</div>
+                <div class="resource-info">
+                    <h3>Sony Pro Global</h3>
+                    <p>Global product page (English)</p>
+                    <span class="resource-size">网页 · 官方</span>
+                </div>
+                <svg class="resource-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </a>
+            <a class="resource-card" href="https://www.sonystyle.com.cn/professional/products/broadcast-and-production/broadcast-monitors/broadcast-accessories/control-units/bvmk-r10.html" target="_blank" rel="noopener">
+                <div class="resource-icon">🎛️</div>
+                <div class="resource-info">
+                    <h3>BVMK-R10 控制器</h3>
+                    <p>BVM 系列监视器控制单元 · 配套选购</p>
+                    <span class="resource-size">网页 · 官方</span>
+                </div>
+                <svg class="resource-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ========== 页脚 ========== -->
 <footer class="footer">
-  <div class="footer-inner">
-    <div>&copy; 2026 BVM-HX3110 操作指南 | 基于索尼官方资料整理</div>
-    <ul class="footer-links">
-      <li><a href="https://www.sonystyle.com.cn/professional/products/broadcast-and-production/broadcast-monitors/broadcastpromonitors/bvm-hx3100.html" target="_blank">索尼官网产品页</a></li>
-      <li><a href="faq.html">常见问题</a></li>
-      <li><a href="downloads.html">下载中心</a></li>
-    </ul>
-  </div>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <svg viewBox="0 0 40 40" fill="none">
+                        <rect x="2" y="2" width="36" height="36" rx="6" stroke="currentColor" stroke-width="2"/>
+                        <text x="20" y="26" text-anchor="middle" font-size="18" font-weight="900" fill="currentColor" font-family="Arial">S</text>
+                    </svg>
+                    <span>SONY <em>PRO</em></span>
+                </div>
+                <p>本页面为产品介绍站点,所有规格参数来源于索尼官方资料。产品名称 "TRIMASTER" 及 "SORPLAS" 为索尼公司商标。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <a href="#overview">技术概览</a>
+                <a href="#features">核心特性</a>
+                <a href="#specs">技术规格</a>
+                <a href="#licenses">可选许可证</a>
+            </div>
+            <div class="footer-col">
+                <h4>官方资源</h4>
+                <a href="https://pro.sony.com.cn/products/broadcast-and-production/broadcast-monitors/broadcastpromonitors/bvm-hx3100.html" target="_blank" rel="noopener">索尼中国专业</a>
+                <a href="https://pro.sony/ue_US/products/broadcastpromonitors/bvm-hx3110" target="_blank" rel="noopener">Sony Pro Global</a>
+                <a href="https://www.sony.com/electronics/support/professional-monitors-pro-monitors/bvm-hx3110/manuals" target="_blank" rel="noopener">官方支持页</a>
+            </div>
+            <div class="footer-col">
+                <h4>型号</h4>
+                <p>BVM-HX3110</p>
+                <p>30.5" 4K HDR Master Monitor</p>
+                <p class="footer-model">5 年标准保修</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 BVM-HX3110 产品介绍 · 数据来源于索尼官方文档,仅供学习参考</p>
+            <p class="footer-tip">本网站非索尼官方,所有商标归原作者所有</p>
+        </div>
+    </div>
 </footer>
 
+<!-- 返回顶部 -->
+<button class="back-to-top" id="backToTop" aria-label="返回顶部">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<!-- 图片灯箱 -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="关闭">×</button>
+    <img id="lightboxImg" src="" alt="">
+</div>
+
+<script src="js/main.js"></script>
 </body>
 </html>

@@ -13,8 +13,6 @@
         initScrollProgress();
         initNavbar();
         initNavToggle();
-        initSpecGroups();
-        initSpecSearch();
         initScrollReveal();
         initBackToTop();
         initLightbox();
@@ -117,128 +115,6 @@
         sections.forEach(s => observer.observe(s));
     }
 
-    // ====== Specs group expand/collapse ======
-    function initSpecGroups() {
-        const groups = document.querySelectorAll('.specs-group');
-        // Open the first group by default
-        if (groups.length > 0) groups[0].classList.add('open');
-
-        groups.forEach(group => {
-            const header = group.querySelector('.specs-group-header');
-            if (!header) return;
-            header.addEventListener('click', () => {
-                group.classList.toggle('open');
-            });
-        });
-    }
-
-    // ====== Specs search filter ======
-    function initSpecSearch() {
-        const input = document.getElementById('specSearch');
-        const clearBtn = document.getElementById('searchClear');
-        const noResults = document.getElementById('specNoResults');
-        if (!input) return;
-
-        // Create no-results element if not present
-        let noRes = noResults;
-        if (!noRes) {
-            noRes = document.createElement('div');
-            noRes.className = 'no-results';
-            noRes.id = 'specNoResults';
-            noRes.textContent = '未找到匹配的参数';
-            document.querySelector('.specs').appendChild(noRes);
-        }
-
-        const handleSearch = () => {
-            const term = input.value.trim().toLowerCase();
-            clearBtn.classList.toggle('visible', term.length > 0);
-
-            const allRows = document.querySelectorAll('.spec-row');
-            const allGroups = document.querySelectorAll('.specs-group');
-            let totalMatches = 0;
-
-            if (term === '') {
-                // Reset
-                allRows.forEach(row => {
-                    row.style.display = '';
-                    row.classList.remove('match');
-                    removeHighlights(row);
-                });
-                allGroups.forEach(g => {
-                    g.style.display = '';
-                });
-                noRes.classList.remove('show');
-                return;
-            }
-
-            allRows.forEach(row => {
-                const key = (row.getAttribute('data-key') || '').toLowerCase();
-                const text = row.textContent.toLowerCase();
-                const isMatch = key.includes(term) || text.includes(term);
-                row.style.display = isMatch ? '' : 'none';
-                row.classList.toggle('match', isMatch);
-                if (isMatch) {
-                    totalMatches++;
-                    highlightText(row, term);
-                } else {
-                    removeHighlights(row);
-                }
-            });
-
-            // Hide groups with no visible rows
-            allGroups.forEach(group => {
-                const visibleRows = group.querySelectorAll('.spec-row[style="display: "]').length
-                    + Array.from(group.querySelectorAll('.spec-row')).filter(r => r.style.display !== 'none').length;
-                group.style.display = visibleRows > 0 ? '' : 'none';
-                // Auto-open groups with matches
-                if (visibleRows > 0) group.classList.add('open');
-            });
-
-            noRes.classList.toggle('show', totalMatches === 0);
-        };
-
-        input.addEventListener('input', debounce(handleSearch, 120));
-
-        clearBtn.addEventListener('click', () => {
-            input.value = '';
-            clearBtn.classList.remove('visible');
-            handleSearch();
-            input.focus();
-        });
-
-        // ESC to clear
-        input.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && input.value) {
-                input.value = '';
-                clearBtn.classList.remove('visible');
-                handleSearch();
-            }
-        });
-    }
-
-    function highlightText(row, term) {
-        removeHighlights(row);
-        if (!term) return;
-        const targets = row.querySelectorAll('.spec-name, .spec-value');
-        targets.forEach(el => {
-            const original = el.dataset.original || el.innerHTML;
-            el.dataset.original = original;
-            // Build regex (escape special chars)
-            const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-            const regex = new RegExp(`(${escaped})`, 'gi');
-            el.innerHTML = original.replace(regex, '<mark>$1</mark>');
-        });
-    }
-
-    function removeHighlights(row) {
-        const targets = row.querySelectorAll('.spec-name, .spec-value');
-        targets.forEach(el => {
-            if (el.dataset.original) {
-                el.innerHTML = el.dataset.original;
-            }
-        });
-    }
-
     // ====== Scroll reveal animation ======
     function initScrollReveal() {
         const selectors = [
@@ -246,12 +122,11 @@
             '.feature-card',
             '.license-card',
             '.scene-card',
+            '.resource-group',
             '.resource-card',
-            '.overview-text',
-            '.overview-image',
-            '.specs-group',
             '.workflow-node',
             '.workflow-card',
+            '.sop-item',
             '.workflow-note',
             '.ai-transcode-panel',
             '.ai-step',
@@ -480,6 +355,8 @@
                 if (!target) return;
 
                 const text = target.textContent.trim();
+                button.textContent = '复制中';
+                button.classList.remove('is-copied');
                 try {
                     if (navigator.clipboard && window.isSecureContext) {
                         try {
@@ -498,6 +375,7 @@
                     }, 1800);
                 } catch (err) {
                     button.textContent = '复制失败';
+                    button.classList.remove('is-copied');
                     window.setTimeout(() => {
                         button.textContent = defaultText;
                     }, 1800);
@@ -531,15 +409,6 @@
                 card.style.setProperty('--my', y + '%');
             });
         });
-    }
-
-    // ====== Utilities ======
-    function debounce(fn, delay) {
-        let timer = null;
-        return function (...args) {
-            clearTimeout(timer);
-            timer = setTimeout(() => fn.apply(this, args), delay);
-        };
     }
 
 })();

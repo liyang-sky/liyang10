@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=20260611-responsive-tv-mobile">
+    <link rel="stylesheet" href="css/style.css?v=20260616-sop-calm">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2300D4FF'/%3E%3Ctext x='50' y='62' font-size='40' font-weight='900' text-anchor='middle' fill='%230A0E1A' font-family='Arial'%3ES%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -88,12 +88,15 @@
             </div>
             <div class="hero-cta">
                 <a href="#workflow" class="btn btn-primary">
-                    <span>查看实验室用法</span>
+                    <span>进入上屏工作流</span>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
                 </a>
                 <a href="#licenses" class="btn btn-ghost">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M21 12c-1 0-3-1-3-3s2-3 3-3c0-1-1-3-3-3-2 0-3 2-3 3s-1 3-3 3-3-2-3-3-1-3-3-3c-2 0-3 2-3 3 1 0 3 1 3 3s-2 3-3 3c0 1 1 3 3 3 2 0 3-2 3-3s1-3 3-3 3 2 3 3 1 3 3 3c2 0 3-2 3-3z"/></svg>
                     <span>许可证教程</span>
+                </a>
+                <a href="#ai-transcode" class="btn btn-ghost">
+                    <span>片源格式转换</span>
                 </a>
             </div>
         </div>
@@ -566,12 +569,27 @@
                 </article>
             </div>
 
-            <div class="ai-transcode-panel" aria-labelledby="aiTranscodeTitle">
+            <div class="sop-strip" aria-label="上屏监看 SOP 速查">
+                <article class="sop-item">
+                    <span>使用目的</span>
+                    <p>把 DaVinci Resolve 的时间线画面稳定送到 BVM-HX3110,用于调色、HDR/SDR 检查和输出比对。</p>
+                </article>
+                <article class="sop-item">
+                    <span>准备条件</span>
+                    <p>确认 Desktop Video / UltraStudio 驱动、Resolve 监看设备、SDI 线缆和监视器输入通道都已就绪。</p>
+                </article>
+                <article class="sop-item">
+                    <span>检查结果</span>
+                    <p>画面应无黑屏、无错误帧率、无异常色彩映射;出现片源格式问题时先走下面的 AI 转码流程。</p>
+                </article>
+            </div>
+
+            <div class="ai-transcode-panel" id="ai-transcode" aria-labelledby="aiTranscodeTitle">
                 <div class="ai-transcode-header">
-                    <span class="workflow-card-label">AI + FFmpeg</span>
-                    <div>
-                        <h3 id="aiTranscodeTitle">片源格式不对时怎么处理</h3>
-                        <p>工程师不需要手写 FFmpeg 参数。先读取片源信息,再把网页里的标准提示词复制给 AI,由 AI 生成可在 Windows CMD 直接执行的转码命令。</p>
+                        <span class="workflow-card-label">AI + FFmpeg</span>
+                        <div>
+                            <h3 id="aiTranscodeTitle">片源格式不对时怎么处理</h3>
+                        <p>工程师不需要手写 FFmpeg 参数。复制网页里的标准要求,再粘贴 MediaInfo 读取出来的完整信息,由 AI 生成可在 Windows CMD 直接执行的转码命令。</p>
                     </div>
                 </div>
 
@@ -583,13 +601,13 @@
                     </article>
                     <article class="ai-step">
                         <span>02</span>
-                        <h4>复制文件路径</h4>
-                        <p>准备视频文件完整路径。路径里有空格或中文时,后续命令必须使用英文双引号包住。</p>
+                        <h4>复制完整信息</h4>
+                        <p>直接复制 MediaInfo 的完整文本。通常里面会包含文件路径、编码、封装、帧率、分辨率、色彩和音频信息。</p>
                     </article>
                     <article class="ai-step">
                         <span>03</span>
-                        <h4>复制 AI 提示词</h4>
-                        <p>把 DaVinci 项目设置、文件路径和视频信息粘贴到提示词对应位置。</p>
+                        <h4>复制 AI 要求</h4>
+                        <p>点击下面按钮复制固定要求,再把 MediaInfo 完整信息粘贴到要求后面。</p>
                     </article>
                     <article class="ai-step">
                         <span>04</span>
@@ -602,9 +620,9 @@
                     <article class="ai-transcode-card">
                         <h4>你只需要准备什么</h4>
                         <ul>
-                            <li>DaVinci Resolve 项目设置:分辨率、帧率、SDR/HDR、色彩管理或色彩空间。</li>
-                            <li>片源文件完整路径,例如 <code>D:\project\shot01.mov</code>。</li>
-                            <li>视频信息软件导出的完整文本,不要只复制一两行摘要。</li>
+                            <li>MediaInfo 或实验室现有工具导出的完整文本,不要只复制一两行摘要。</li>
+                            <li>优先确认文本里有 <code>Complete name</code> 或文件完整路径;如果没有,再单独补一行路径。</li>
+                            <li>没有特殊要求时,默认让 AI 跟随片源参数生成适合监看对比的中间格式。</li>
                         </ul>
                     </article>
 
@@ -613,7 +631,7 @@
                         <ul>
                             <li>确认输入路径和输出路径正确,不要覆盖原片源。</li>
                             <li>如果 AI 判断只需换封装,优先使用无损封装转换命令。</li>
-                            <li>质量对比建议输出 ProRes 422 HQ 或 DNxHR HQX 10-bit 这类中间格式。</li>
+                            <li>只有需要强制匹配某个项目时,再补充目标分辨率、帧率或 SDR/HDR 要求。</li>
                         </ul>
                     </article>
                 </div>
@@ -621,35 +639,28 @@
                 <div class="ai-prompt-box">
                     <div class="ai-prompt-toolbar">
                         <div>
-                            <h4>复制给 AI 的标准提示词</h4>
-                            <p>不要上传涉密片源本身,只复制技术信息和本地路径。</p>
+                            <h4>复制给 AI 的标准要求</h4>
+                            <p>复制要求后,把 MediaInfo 完整信息直接粘贴在后面即可。</p>
                         </div>
-                        <button class="copy-ai-prompt" type="button" data-copy-target="aiTranscodePrompt" aria-label="复制 AI 转码提示词">复制 AI 提示词</button>
+                        <button class="copy-ai-prompt" type="button" data-copy-target="aiTranscodePrompt" aria-label="复制 AI 转码要求">复制 AI 要求</button>
                     </div>
-                    <pre id="aiTranscodePrompt"><code>你是实验室视频格式转换助手。请根据我提供的视频文件路径、视频信息和 DaVinci Resolve 项目设置，生成可在 Windows CMD 中直接执行的 FFmpeg 命令。
+                    <pre id="aiTranscodePrompt"><code>你是实验室视频格式转换助手。下面我会粘贴 MediaInfo 读取出来的完整视频信息。请根据其中的文件路径、编码、封装、帧率、分辨率、色彩和音频信息，生成可在 Windows CMD 中直接执行的 FFmpeg 命令。
 
 要求：
 1. 只输出最终可执行命令和必要的执行说明。
-2. 输入文件路径必须保留原始路径，路径中如果有空格或中文，请用英文双引号包住。
-3. 输出文件放在输入文件同目录，文件名后加 _converted。
-4. 转码目标跟随 DaVinci Resolve 项目设置。
-5. 优先生成适合调色和监看对比的中间格式，例如 ProRes 422 HQ 或 DNxHR HQX 10-bit。
+2. 优先从 MediaInfo 的 Complete name / 完整名称读取输入文件路径;如果没有路径,请提示我补充。
+3. 路径中如果有空格或中文,必须用英文双引号包住。
+4. 输出文件放在输入文件同目录,文件名后加 _converted,不要覆盖原文件。
+5. 没有额外说明时,输出参数尽量跟随片源信息,并优先选择适合调色和监看对比的中间格式,例如 ProRes 422 HQ 或 DNxHR HQX 10-bit。
 6. 音频统一为 48kHz PCM。
-7. 如果原始信息不足，请明确告诉我缺少哪些信息，不要猜。
-8. 如果只需要换封装就能解决，请优先给出无损封装转换命令。
+7. 如果只需要换封装就能解决,请优先给出无损封装转换命令。
+8. 如果信息不足,请明确告诉我缺少哪些信息,不要猜。
 
-我的 DaVinci Resolve 项目设置：
-- 分辨率：
-- 帧率：
-- SDR/HDR：
-- 色彩管理/色彩空间：
-- 其他要求：
+特殊目标要求:
+无。默认跟随片源信息。
 
-视频文件路径：
-在这里粘贴完整路径
-
-视频信息：
-在这里粘贴软件读取出来的完整信息</code></pre>
+MediaInfo 完整信息:
+在这里粘贴 MediaInfo 读取出来的完整信息</code></pre>
                 </div>
 
                 <div class="ai-example-grid">
@@ -907,79 +918,96 @@
             <h2 class="section-title">获取<strong>官方资料</strong></h2>
             <p class="section-desc">从索尼中国/全球与 Blackmagic 官方页面获取说明书、规格与驱动支持信息。</p>
         </div>
-        <div class="resources-grid">
-            <a class="resource-card" href="https://www.sony.com/electronics/support/res/manuals/5054/9c57081cef5cc51db7900775c5b63d47/50542156M.pdf" target="_blank" rel="noopener">
-                <div class="resource-icon">📕</div>
-                <div class="resource-info">
-                    <h3>简体中文说明书</h3>
-                    <p>完整操作指南(繁体中文版)</p>
-                    <span class="resource-size">PDF · 索尼官方</span>
+        <div class="resource-groups">
+            <section class="resource-group" aria-labelledby="resourceDocs">
+                <h3 id="resourceDocs">设备官方资料</h3>
+                <div class="resources-grid">
+                    <a class="resource-card" href="https://www.sony.com/electronics/support/res/manuals/5054/9c57081cef5cc51db7900775c5b63d47/50542156M.pdf" target="_blank" rel="noopener">
+                        <div class="resource-icon">PDF</div>
+                        <div class="resource-info">
+                            <h3>简体中文说明书</h3>
+                            <p>完整操作指南(繁体中文版)</p>
+                            <span class="resource-size">PDF · 索尼官方</span>
+                        </div>
+                        <svg class="resource-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    </a>
+                    <a class="resource-card" href="https://www.sony.com/electronics/support/res/manuals/5054/5bb4d82a422ff98cf0482c682d7e7643/50542151M.pdf" target="_blank" rel="noopener">
+                        <div class="resource-icon">EN</div>
+                        <div class="resource-info">
+                            <h3>English Manual</h3>
+                            <p>Operating Instructions (English, 9.9 MB)</p>
+                            <span class="resource-size">PDF · 2025-06-05</span>
+                        </div>
+                        <svg class="resource-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    </a>
+                    <a class="resource-card" href="https://pro.sony.com.cn/products/broadcast-and-production/broadcast-monitors/broadcastpromonitors/bvm-hx3100.html" target="_blank" rel="noopener">
+                        <div class="resource-icon">CN</div>
+                        <div class="resource-info">
+                            <h3>索尼中国官网</h3>
+                            <p>产品详细页 · 完整技术规格</p>
+                            <span class="resource-size">网页 · 官方</span>
+                        </div>
+                        <svg class="resource-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    </a>
+                    <a class="resource-card" href="https://pro.sony/ue_US/products/broadcastpromonitors/bvm-hx3110" target="_blank" rel="noopener">
+                        <div class="resource-icon">GL</div>
+                        <div class="resource-info">
+                            <h3>Sony Pro Global</h3>
+                            <p>Global product page (English)</p>
+                            <span class="resource-size">网页 · 官方</span>
+                        </div>
+                        <svg class="resource-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    </a>
+                    <a class="resource-card" href="https://www.sonystyle.com.cn/professional/products/broadcast-and-production/broadcast-monitors/broadcast-accessories/control-units/bvmk-r10.html" target="_blank" rel="noopener">
+                        <div class="resource-icon">CTL</div>
+                        <div class="resource-info">
+                            <h3>BVMK-R10 控制器</h3>
+                            <p>BVM 系列监视器控制单元 · 配套选购</p>
+                            <span class="resource-size">网页 · 官方</span>
+                        </div>
+                        <svg class="resource-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    </a>
                 </div>
-                <svg class="resource-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-            </a>
-            <a class="resource-card" href="https://www.sony.com/electronics/support/res/manuals/5054/5bb4d82a422ff98cf0482c682d7e7643/50542151M.pdf" target="_blank" rel="noopener">
-                <div class="resource-icon">📗</div>
-                <div class="resource-info">
-                    <h3>English Manual</h3>
-                    <p>Operating Instructions (English, 9.9 MB)</p>
-                    <span class="resource-size">PDF · 2025-06-05</span>
+            </section>
+
+            <section class="resource-group" aria-labelledby="resourceDrivers">
+                <h3 id="resourceDrivers">上屏与驱动</h3>
+                <div class="resources-grid">
+                    <a class="resource-card" href="https://www.blackmagicdesign.com/support" target="_blank" rel="noopener">
+                        <div class="resource-icon">BM</div>
+                        <div class="resource-info">
+                            <h3>Blackmagic 支持中心</h3>
+                            <p>UltraStudio / Desktop Video 驱动与支持页面</p>
+                            <span class="resource-size">网页 · 官方支持</span>
+                        </div>
+                        <svg class="resource-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    </a>
                 </div>
-                <svg class="resource-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-            </a>
-            <a class="resource-card" href="https://pro.sony.com.cn/products/broadcast-and-production/broadcast-monitors/broadcastpromonitors/bvm-hx3100.html" target="_blank" rel="noopener">
-                <div class="resource-icon">🌐</div>
-                <div class="resource-info">
-                    <h3>索尼中国官网</h3>
-                    <p>产品详细页 · 完整技术规格</p>
-                    <span class="resource-size">网页 · 官方</span>
+            </section>
+
+            <section class="resource-group" aria-labelledby="resourceMediaTools">
+                <h3 id="resourceMediaTools">片源检查与转码工具</h3>
+                <div class="resources-grid">
+                    <a class="resource-card" href="https://mediaarea.net/MediaInfo/Download" target="_blank" rel="noopener">
+                        <div class="resource-icon">MI</div>
+                        <div class="resource-info">
+                            <h3>MediaInfo 下载</h3>
+                            <p>读取片源编码、封装、帧率、分辨率、色彩与音频信息</p>
+                            <span class="resource-size">网页 · 官方下载</span>
+                        </div>
+                        <svg class="resource-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    </a>
+                    <a class="resource-card" href="https://ffmpeg.org/download.html" target="_blank" rel="noopener">
+                        <div class="resource-icon">FF</div>
+                        <div class="resource-info">
+                            <h3>FFmpeg 下载</h3>
+                            <p>用于按 AI 生成的命令执行转封装、转码和音频采样率统一</p>
+                            <span class="resource-size">网页 · 官方下载</span>
+                        </div>
+                        <svg class="resource-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    </a>
                 </div>
-                <svg class="resource-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-            </a>
-            <a class="resource-card" href="https://pro.sony/ue_US/products/broadcastpromonitors/bvm-hx3110" target="_blank" rel="noopener">
-                <div class="resource-icon">🌍</div>
-                <div class="resource-info">
-                    <h3>Sony Pro Global</h3>
-                    <p>Global product page (English)</p>
-                    <span class="resource-size">网页 · 官方</span>
-                </div>
-                <svg class="resource-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-            </a>
-            <a class="resource-card" href="https://www.sonystyle.com.cn/professional/products/broadcast-and-production/broadcast-monitors/broadcast-accessories/control-units/bvmk-r10.html" target="_blank" rel="noopener">
-                <div class="resource-icon">🎛️</div>
-                <div class="resource-info">
-                    <h3>BVMK-R10 控制器</h3>
-                    <p>BVM 系列监视器控制单元 · 配套选购</p>
-                    <span class="resource-size">网页 · 官方</span>
-                </div>
-                <svg class="resource-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-            </a>
-            <a class="resource-card" href="https://www.blackmagicdesign.com/support" target="_blank" rel="noopener">
-                <div class="resource-icon">⬛</div>
-                <div class="resource-info">
-                    <h3>Blackmagic 支持中心</h3>
-                    <p>UltraStudio / Desktop Video 驱动与支持页面</p>
-                    <span class="resource-size">网页 · 官方支持</span>
-                </div>
-                <svg class="resource-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-            </a>
-            <a class="resource-card" href="https://mediaarea.net/MediaInfo/Download" target="_blank" rel="noopener">
-                <div class="resource-icon">🔎</div>
-                <div class="resource-info">
-                    <h3>MediaInfo 下载</h3>
-                    <p>读取片源编码、封装、帧率、分辨率、色彩与音频信息</p>
-                    <span class="resource-size">网页 · 官方下载</span>
-                </div>
-                <svg class="resource-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-            </a>
-            <a class="resource-card" href="https://ffmpeg.org/download.html" target="_blank" rel="noopener">
-                <div class="resource-icon">⌘</div>
-                <div class="resource-info">
-                    <h3>FFmpeg 下载</h3>
-                    <p>用于按 AI 生成的命令执行转封装、转码和音频采样率统一</p>
-                    <span class="resource-size">网页 · 官方下载</span>
-                </div>
-                <svg class="resource-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-            </a>
+            </section>
         </div>
     </div>
 </section>
@@ -1050,6 +1078,6 @@
     </div>
 </div>
 
-<script src="js/main.js?v=20260611-responsive-tv-mobile"></script>
+<script src="js/main.js?v=20260616-prompt-simple"></script>
 </body>
 </html>

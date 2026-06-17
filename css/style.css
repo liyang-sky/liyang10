@@ -7,26 +7,26 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-    /* Color palette - Dark + Neon */
+    /* Color palette - calm dark technical */
     --bg-base: #0A0E1A;
     --bg-elevated: #0F1524;
     --bg-card: rgba(255, 255, 255, 0.03);
     --bg-card-hover: rgba(255, 255, 255, 0.06);
     --border-subtle: rgba(255, 255, 255, 0.08);
-    --border-neon: rgba(0, 212, 255, 0.25);
-    --border-neon-strong: rgba(0, 212, 255, 0.5);
+    --border-neon: rgba(79, 194, 224, 0.22);
+    --border-neon-strong: rgba(79, 194, 224, 0.42);
 
     --text-primary: #F5F7FA;
     --text-secondary: #9BA3B4;
     --text-tertiary: #6B7385;
 
-    --neon-cyan: #00D4FF;
-    --neon-cyan-soft: rgba(0, 212, 255, 0.15);
-    --neon-magenta: #FF2E92;
-    --neon-magenta-soft: rgba(255, 46, 146, 0.15);
-    --neon-amber: #FFB800;
-    --neon-amber-soft: rgba(255, 184, 0, 0.15);
-    --neon-green: #00FFA3;
+    --neon-cyan: #4FC2E0;
+    --neon-cyan-soft: rgba(79, 194, 224, 0.12);
+    --neon-magenta: #7EA8BA;
+    --neon-magenta-soft: rgba(126, 168, 186, 0.12);
+    --neon-amber: #D6A744;
+    --neon-amber-soft: rgba(214, 167, 68, 0.13);
+    --neon-green: #66D9A8;
 
     /* Typography */
     --font-sans: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -45,15 +45,15 @@
     --container-pad: 2rem;
     --radius-sm: 8px;
     --radius-md: 12px;
-    --radius-lg: 20px;
-    --radius-xl: 28px;
+    --radius-lg: 14px;
+    --radius-xl: 18px;
 
     /* Effects */
-    --glow-cyan: 0 0 40px rgba(0, 212, 255, 0.4);
-    --glow-magenta: 0 0 40px rgba(255, 46, 146, 0.4);
-    --glow-amber: 0 0 40px rgba(255, 184, 0, 0.4);
-    --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
-    --shadow-elevated: 0 20px 60px rgba(0, 0, 0, 0.6);
+    --glow-cyan: 0 0 18px rgba(79, 194, 224, 0.16);
+    --glow-magenta: 0 0 18px rgba(126, 168, 186, 0.12);
+    --glow-amber: 0 0 18px rgba(214, 167, 68, 0.14);
+    --shadow-card: 0 10px 24px rgba(0, 0, 0, 0.24);
+    --shadow-elevated: 0 18px 50px rgba(0, 0, 0, 0.48);
 
     /* Transitions */
     --t-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -82,8 +82,8 @@ body::before {
     position: fixed;
     inset: 0;
     background-image:
-        linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+        linear-gradient(rgba(79, 194, 224, 0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79, 194, 224, 0.018) 1px, transparent 1px);
     background-size: 60px 60px;
     pointer-events: none;
     z-index: 0;
@@ -101,9 +101,9 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     top: 0; left: 0;
     height: 3px;
     width: 0;
-    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta), var(--neon-amber));
+    background: var(--neon-cyan);
     z-index: 1001;
-    box-shadow: 0 0 10px var(--neon-cyan);
+    box-shadow: none;
     transition: width 100ms linear;
 }
 
@@ -152,7 +152,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 }
 
 .section-title strong {
-    color: var(--neon-magenta);
+    color: var(--neon-cyan);
     font-weight: 800;
 }
 
@@ -163,11 +163,9 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 }
 
 .gradient-text {
-    background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-magenta) 50%, var(--neon-amber) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+    color: var(--neon-cyan);
+    background: none;
+    -webkit-text-fill-color: currentColor;
 }
 
 .img-fluid { width: 100%; height: auto; border-radius: var(--radius-md); }
@@ -212,11 +210,11 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     transition: all var(--t-base);
 }
 
-.nav-logo:hover { color: var(--neon-magenta); }
+.nav-logo:hover { color: var(--neon-cyan); }
 
 .logo-icon {
     width: 32px; height: 32px;
-    filter: drop-shadow(0 0 8px var(--neon-cyan-soft));
+    filter: none;
 }
 
 .logo-text em {
@@ -248,7 +246,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     bottom: -2px; left: 50%;
     transform: translateX(-50%);
     width: 0; height: 2px;
-    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));
+    background: var(--neon-cyan);
     transition: width var(--t-base);
 }
 
@@ -290,7 +288,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .hero {
     min-height: auto;
     position: relative;
-    padding: 110px 0 50px;
+    padding: 96px 0 28px;
     overflow: hidden;
 }
 
@@ -304,8 +302,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     position: absolute;
     inset: 0;
     background-image:
-        linear-gradient(rgba(0, 212, 255, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 212, 255, 0.08) 1px, transparent 1px);
+        linear-gradient(rgba(79, 194, 224, 0.026) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79, 194, 224, 0.026) 1px, transparent 1px);
     background-size: 80px 80px;
     mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
     -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
@@ -318,8 +316,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     width: 800px; height: 800px;
     background: radial-gradient(circle, var(--neon-cyan-soft) 0%, transparent 60%);
     filter: blur(60px);
-    opacity: 0.6;
-    animation: pulseGlow 8s ease-in-out infinite;
+    opacity: 0.18;
+    animation: none;
 }
 
 @keyframes pulseGlow {
@@ -332,8 +330,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     margin: 0 auto;
     padding: 0 var(--container-pad);
     display: grid;
-    grid-template-columns: minmax(360px, 0.92fr) minmax(560px, 1.08fr);
-    gap: var(--space-lg);
+    grid-template-columns: minmax(360px, 0.9fr) minmax(520px, 1.1fr);
+    gap: var(--space-md);
     align-items: start;
     position: relative;
     z-index: 1;
@@ -356,16 +354,16 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     border-radius: 100px;
     font-size: 0.8125rem;
     color: var(--text-secondary);
-    margin-bottom: var(--space-md);
-    backdrop-filter: blur(10px);
+    margin-bottom: var(--space-sm);
+    backdrop-filter: none;
 }
 
 .badge-dot {
     width: 6px; height: 6px;
     background: var(--neon-cyan);
     border-radius: 50%;
-    box-shadow: 0 0 8px var(--neon-cyan);
-    animation: pulseDot 2s ease-in-out infinite;
+    box-shadow: none;
+    animation: none;
 }
 
 @keyframes pulseDot {
@@ -374,10 +372,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 }
 
 .hero-title {
-    font-size: clamp(2.2rem, 4vw, 3.25rem);
+    font-size: clamp(2.1rem, 3.7vw, 3rem);
     font-weight: 900;
     line-height: 1.08;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
     letter-spacing: -0.03em;
 }
 
@@ -386,10 +384,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 }
 
 .hero-subtitle {
-    font-size: 1.0625rem;
+    font-size: 1rem;
     color: var(--text-secondary);
     line-height: 1.75;
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
     max-width: 540px;
 }
 
@@ -401,13 +399,13 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .hero-stats {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-md);
-    margin-bottom: var(--space-lg);
-    padding: var(--space-md) var(--space-md);
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
     background: var(--bg-card);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg);
-    backdrop-filter: blur(20px);
+    backdrop-filter: none;
 }
 
 .stat { text-align: center; }
@@ -472,21 +470,21 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .btn svg { width: 18px; height: 18px; }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta));
+    background: var(--neon-cyan);
     color: var(--bg-base);
-    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+    box-shadow: none;
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(0, 212, 255, 0.5), 0 0 40px rgba(255, 46, 146, 0.3);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
 }
 
 .btn-ghost {
     background: var(--bg-card);
     color: var(--text-primary);
     border: 1px solid var(--border-neon);
-    backdrop-filter: blur(10px);
+    backdrop-filter: none;
 }
 
 .btn-ghost:hover {
@@ -498,20 +496,20 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .hero-reference {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: var(--space-md);
-    margin-top: var(--space-md);
-    padding-bottom: var(--space-lg);
+    gap: var(--space-sm);
+    margin-top: var(--space-sm);
+    padding-bottom: 0;
 }
 
 .hero-reference-card {
     position: relative;
-    min-height: 155px;
-    padding: var(--space-md);
+    min-height: 118px;
+    padding: var(--space-sm);
     background: rgba(255, 255, 255, 0.035);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
     overflow: hidden;
-    backdrop-filter: blur(18px);
+    backdrop-filter: none;
 }
 
 .hero-reference-card[data-color="cyan"] { --c: var(--neon-cyan); --c-glow: var(--neon-cyan-soft); }
@@ -519,11 +517,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .hero-reference-card[data-color="amber"] { --c: var(--neon-amber); --c-glow: var(--neon-amber-soft); }
 
 .hero-reference-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at top right, var(--c-glow, var(--neon-cyan-soft)), transparent 58%);
-    opacity: 0.9;
+    content: none;
 }
 
 .reference-kicker,
@@ -534,7 +528,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 
 .reference-kicker {
     display: inline-block;
-    margin-bottom: var(--space-sm);
+    margin-bottom: 0.45rem;
     color: var(--c, var(--neon-cyan));
     font-family: var(--font-mono);
     font-size: 0.7rem;
@@ -543,7 +537,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 }
 
 .hero-reference-card h2 {
-    margin-bottom: 0.55rem;
+    margin-bottom: 0.35rem;
     color: var(--text-primary);
     font-size: 1.25rem;
     font-weight: 800;
@@ -565,17 +559,13 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     position: relative;
     animation: fadeInUp 1s ease-out 0.2s backwards;
     display: grid;
-    grid-template-columns: minmax(180px, 0.72fr) minmax(0, 1fr);
+    grid-template-columns: minmax(160px, 0.65fr) minmax(0, 1fr);
     align-items: center;
     gap: var(--space-md);
 }
 
 .hero-image-glow {
-    position: absolute;
-    inset: -20%;
-    background: radial-gradient(circle, var(--neon-cyan-soft) 0%, transparent 60%);
-    filter: blur(40px);
-    z-index: 0;
+    display: none;
 }
 
 .hero-product-img {
@@ -584,13 +574,13 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     width: 100%;
     height: auto;
     justify-self: center;
-    filter: drop-shadow(0 20px 40px rgba(0, 212, 255, 0.2));
+    filter: none;
     border-radius: var(--radius-lg);
     transition: transform var(--t-slow);
 }
 
 .hero-product-img:hover {
-    transform: scale(1.02) rotate(-1deg);
+    transform: none;
 }
 
 .hx-compare-panel {
@@ -600,8 +590,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg);
-    backdrop-filter: blur(20px);
-    box-shadow: var(--shadow-card);
+    backdrop-filter: none;
+    box-shadow: none;
 }
 
 .hx-compare-header {
@@ -667,7 +657,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 
 @media (min-width: 1600px) {
     .hero {
-        padding: 130px 0 70px;
+        padding: 112px 0 36px;
     }
 
     .hero-container,
@@ -681,12 +671,12 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     }
 
     .hero-title {
-        font-size: clamp(3.75rem, 4vw, 5rem);
+        font-size: clamp(3.25rem, 3.4vw, 4.25rem);
     }
 
     .hero-subtitle {
         max-width: 720px;
-        font-size: 1.25rem;
+        font-size: 1.15rem;
     }
 
     .hero-stats {
@@ -708,8 +698,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     }
 
     .hero-reference-card {
-        min-height: 180px;
-        padding: var(--space-lg);
+        min-height: 138px;
+        padding: var(--space-md);
     }
 
     .hero-reference-card h2 {
@@ -747,12 +737,12 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     }
 
     .hero-title {
-        font-size: clamp(4.75rem, 3.4vw, 6.5rem);
+        font-size: clamp(4rem, 3vw, 5.4rem);
     }
 
     .hero-subtitle {
         max-width: 880px;
-        font-size: 1.45rem;
+        font-size: 1.28rem;
     }
 
     .btn {
@@ -766,6 +756,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 }
 
 .hero-scroll-hint {
+    display: none;
     position: absolute;
     bottom: 30px;
     left: 50%;
@@ -1182,18 +1173,16 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 
 /* ---------- Licenses ---------- */
 .workflow {
-    background:
-        radial-gradient(ellipse at 15% 20%, var(--neon-cyan-soft), transparent 36%),
-        radial-gradient(ellipse at 85% 80%, var(--neon-magenta-soft), transparent 32%);
+    background: linear-gradient(180deg, rgba(79, 194, 224, 0.035), transparent 28%);
 }
 
 .workflow-panel {
     padding: var(--space-lg);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.02));
+    background: rgba(255, 255, 255, 0.026);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-card);
-    backdrop-filter: blur(20px);
+    backdrop-filter: none;
 }
 
 .workflow-chain {
@@ -1215,15 +1204,11 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 }
 
 .workflow-node[data-color="cyan"] { --c: var(--neon-cyan); --c-glow: var(--neon-cyan-soft); }
-.workflow-node[data-color="magenta"] { --c: var(--neon-magenta); --c-glow: var(--neon-magenta-soft); }
-.workflow-node[data-color="amber"] { --c: var(--neon-amber); --c-glow: var(--neon-amber-soft); }
+.workflow-node[data-color="magenta"] { --c: var(--neon-cyan); --c-glow: var(--neon-cyan-soft); }
+.workflow-node[data-color="amber"] { --c: var(--neon-cyan); --c-glow: var(--neon-cyan-soft); }
 
 .workflow-node::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at top right, var(--c-glow, var(--neon-cyan-soft)), transparent 55%);
-    opacity: 0.8;
+    content: none;
 }
 
 .workflow-node-kicker,
@@ -1320,8 +1305,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 }
 
 .workflow-card[data-color="cyan"] { --c: var(--neon-cyan); --c-glow: var(--neon-cyan-soft); }
-.workflow-card[data-color="magenta"] { --c: var(--neon-magenta); --c-glow: var(--neon-magenta-soft); }
-.workflow-card[data-color="amber"] { --c: var(--neon-amber); --c-glow: var(--neon-amber-soft); }
+.workflow-card[data-color="magenta"] { --c: var(--neon-cyan); --c-glow: var(--neon-cyan-soft); }
+.workflow-card[data-color="amber"] { --c: var(--neon-cyan); --c-glow: var(--neon-cyan-soft); }
 
 .workflow-card {
     border-top: 3px solid var(--c, var(--neon-cyan));
@@ -1329,9 +1314,9 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 }
 
 .workflow-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     border-color: var(--c, var(--neon-cyan));
-    box-shadow: 0 10px 30px var(--c-glow, var(--neon-cyan-soft));
+    box-shadow: none;
 }
 
 .workflow-card-label {
@@ -1378,7 +1363,39 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     height: 6px;
     background: var(--c, var(--neon-cyan));
     border-radius: 50%;
-    box-shadow: 0 0 10px var(--c, var(--neon-cyan));
+    box-shadow: none;
+}
+
+.sop-strip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-md);
+    margin: 0 0 var(--space-md);
+}
+
+.sop-item {
+    min-width: 0;
+    padding: var(--space-md);
+    background: rgba(255, 255, 255, 0.028);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--neon-cyan);
+}
+
+.sop-item span {
+    display: block;
+    margin-bottom: 0.45rem;
+    color: var(--neon-cyan);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.sop-item p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.7;
 }
 
 .workflow-notes {
@@ -1406,8 +1423,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     margin: var(--space-lg) 0;
     padding: var(--space-lg);
     background:
-        linear-gradient(135deg, rgba(0, 212, 255, 0.08), transparent 34%),
-        linear-gradient(315deg, rgba(255, 42, 184, 0.08), transparent 36%),
+        linear-gradient(135deg, rgba(79, 194, 224, 0.07), transparent 34%),
         rgba(10, 14, 26, 0.52);
     border: 1px solid var(--border-neon);
     border-radius: var(--radius-lg);
@@ -1515,8 +1531,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--neon-magenta);
-    box-shadow: 0 0 10px var(--neon-magenta);
+    background: var(--neon-cyan);
+    box-shadow: none;
 }
 
 .ai-transcode-card code,
@@ -1556,8 +1572,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     padding: 0 1rem;
     border: 1px solid var(--neon-cyan);
     border-radius: var(--radius-sm);
-    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta));
-    color: var(--bg-primary);
+    background: var(--neon-cyan);
+    color: var(--bg-base);
     font-weight: 800;
     cursor: pointer;
     transition: transform var(--t-base), box-shadow var(--t-base), filter var(--t-base);
@@ -1566,8 +1582,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .copy-ai-prompt:hover,
 .copy-ai-prompt:focus-visible {
     transform: translateY(-2px);
-    box-shadow: 0 10px 26px var(--neon-cyan-soft);
-    filter: saturate(1.1);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+    filter: none;
 }
 
 .copy-ai-prompt.is-copied {
@@ -1612,20 +1628,20 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     background: var(--bg-card);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg);
-    backdrop-filter: blur(20px);
+    backdrop-filter: none;
     transition: all var(--t-base);
     overflow: hidden;
     cursor: pointer;
 }
 
 .license-card[data-color="cyan"] { --c: var(--neon-cyan); --c-glow: var(--neon-cyan-soft); }
-.license-card[data-color="magenta"] { --c: var(--neon-magenta); --c-glow: var(--neon-magenta-soft); }
-.license-card[data-color="amber"] { --c: var(--neon-amber); --c-glow: var(--neon-amber-soft); }
+.license-card[data-color="magenta"] { --c: var(--neon-cyan); --c-glow: var(--neon-cyan-soft); }
+.license-card[data-color="amber"] { --c: var(--neon-cyan); --c-glow: var(--neon-cyan-soft); }
 
 .license-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
     border-color: var(--c, var(--neon-cyan));
-    box-shadow: 0 10px 40px var(--c-glow, var(--neon-cyan-soft));
+    box-shadow: none;
 }
 
 .license-card:focus-visible {
@@ -1639,7 +1655,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 3px;
-    background: linear-gradient(90deg, var(--c, var(--neon-cyan)), transparent);
+    background: var(--c, var(--neon-cyan));
     opacity: 0;
     transition: opacity var(--t-base);
 }
@@ -1734,7 +1750,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .license-guides-inline {
     margin-top: var(--space-xl);
     padding: var(--space-lg);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.02));
+    background: rgba(255, 255, 255, 0.026);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-card);
@@ -1774,7 +1790,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 
 .license-guide-inline:target {
     border-color: var(--neon-cyan);
-    box-shadow: 0 0 0 1px var(--border-neon), 0 10px 32px var(--neon-cyan-soft);
+    box-shadow: 0 0 0 1px var(--border-neon);
 }
 
 .license-guide-inline h4 {
@@ -1836,7 +1852,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
         var(--bg-elevated);
     border: 1px solid var(--border-neon);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-elevated), var(--glow-cyan);
+    box-shadow: var(--shadow-elevated);
     transform: translateY(16px) scale(0.98);
     transition: transform var(--t-base);
 }
@@ -1865,9 +1881,9 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 
 .license-modal-close:hover,
 .license-modal-close:focus-visible {
-    color: var(--neon-magenta);
-    border-color: var(--neon-magenta);
-    background: var(--neon-magenta-soft);
+    color: var(--neon-cyan);
+    border-color: var(--neon-cyan);
+    background: var(--neon-cyan-soft);
 }
 
 .license-modal-kicker {
@@ -1946,33 +1962,34 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 }
 
 .scene-card {
-    padding: var(--space-lg) var(--space-md);
+    padding: var(--space-md);
     background: var(--bg-card);
     border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg);
-    text-align: center;
+    border-radius: var(--radius-md);
+    text-align: left;
     transition: all var(--t-base);
     cursor: default;
 }
 
 .scene-card[data-color="cyan"] { --c: var(--neon-cyan); --c-glow: var(--neon-cyan-soft); }
-.scene-card[data-color="magenta"] { --c: var(--neon-magenta); --c-glow: var(--neon-magenta-soft); }
-.scene-card[data-color="amber"] { --c: var(--neon-amber); --c-glow: var(--neon-amber-soft); }
+.scene-card[data-color="magenta"] { --c: var(--neon-cyan); --c-glow: var(--neon-cyan-soft); }
+.scene-card[data-color="amber"] { --c: var(--neon-cyan); --c-glow: var(--neon-cyan-soft); }
 
 .scene-card:hover {
-    transform: translateY(-6px) scale(1.02);
+    transform: translateY(-2px);
     border-color: var(--c, var(--neon-cyan));
-    box-shadow: 0 10px 30px var(--c-glow, var(--neon-cyan-soft));
+    box-shadow: none;
 }
 
 .scene-icon {
+    display: none;
     font-size: 2.5rem;
     margin-bottom: var(--space-sm);
-    filter: drop-shadow(0 0 10px var(--c-glow, var(--neon-cyan-soft)));
+    filter: none;
     transition: transform var(--t-base);
 }
 
-.scene-card:hover .scene-icon { transform: scale(1.2) rotate(-8deg); }
+.scene-card:hover .scene-icon { transform: none; }
 
 .scene-card h3 {
     font-size: 1.0625rem;
@@ -1991,7 +2008,26 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .resources-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: var(--space-md);
+    gap: var(--space-sm);
+}
+
+.resource-groups {
+    display: grid;
+    gap: var(--space-lg);
+}
+
+.resource-group {
+    padding: var(--space-md);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+}
+
+.resource-group > h3 {
+    margin-bottom: var(--space-sm);
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 800;
 }
 
 .resource-card {
@@ -2001,35 +2037,41 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     padding: var(--space-md) var(--space-lg);
     background: var(--bg-card);
     border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-md);
     transition: all var(--t-base);
-    backdrop-filter: blur(20px);
+    backdrop-filter: none;
     position: relative;
     overflow: hidden;
 }
 
 .resource-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, var(--neon-cyan-soft), transparent);
-    opacity: 0;
-    transition: opacity var(--t-base);
+    content: none;
 }
 
 .resource-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     border-color: var(--neon-cyan);
-    box-shadow: 0 8px 30px rgba(0, 212, 255, 0.2);
+    box-shadow: none;
 }
 
 .resource-card:hover::before { opacity: 1; }
 
 .resource-icon {
     position: relative;
-    font-size: 2.5rem;
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-neon);
+    border-radius: var(--radius-sm);
+    background: var(--neon-cyan-soft);
+    color: var(--neon-cyan);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
     flex-shrink: 0;
-    filter: drop-shadow(0 0 10px var(--neon-cyan-soft));
+    filter: none;
 }
 
 .resource-info {
@@ -2172,10 +2214,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta));
+    background: var(--neon-cyan);
     color: var(--bg-base);
     border-radius: 50%;
-    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+    box-shadow: var(--shadow-card);
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
@@ -2191,7 +2233,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 
 .back-to-top:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 30px rgba(0, 212, 255, 0.6), 0 0 40px rgba(255, 46, 146, 0.4);
+    box-shadow: var(--shadow-elevated);
 }
 
 .back-to-top svg { width: 20px; height: 20px; }
@@ -2242,9 +2284,9 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 }
 
 .lightbox-close:hover {
-    background: var(--neon-magenta-soft);
-    border-color: var(--neon-magenta);
-    color: var(--neon-magenta);
+    background: var(--neon-cyan-soft);
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
     transform: rotate(90deg);
 }
 
@@ -2324,6 +2366,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     }
 
     .workflow-grid,
+    .sop-strip,
     .workflow-notes {
         grid-template-columns: 1fr;
     }
@@ -2361,7 +2404,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 
     .section { padding: var(--space-xl) 0; }
 
-    .hero { padding: 90px 0 36px; min-height: auto; }
+    .hero { padding: 86px 0 28px; min-height: auto; }
 
     .hero-title {
         font-size: clamp(2rem, 10vw, 3.2rem);
@@ -2381,11 +2424,12 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 
     .hero-cta {
         margin-bottom: var(--space-md);
+        gap: 0.65rem;
     }
 
     .hero-reference {
-        grid-template-columns: 1fr;
-        padding-bottom: var(--space-lg);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding-bottom: 0;
         gap: var(--space-sm);
     }
 
@@ -2393,15 +2437,21 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
         min-height: auto;
     }
 
+    .hero-product-img {
+        display: none;
+    }
+
     .hx-compare-row {
-        grid-template-columns: 1fr;
-        gap: 0.35rem;
-        align-items: start;
-        padding: 0.75rem var(--space-sm);
+        grid-template-columns: 0.75fr 1.15fr 0.9fr;
+        gap: 0.5rem;
+        align-items: center;
+        padding: 0.55rem var(--space-sm);
+        font-size: 0.76rem;
+        line-height: 1.35;
     }
 
     .hx-compare-head {
-        display: none;
+        display: grid;
     }
 
     .workflow-panel { padding: var(--space-md); }
@@ -2470,7 +2520,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     }
 
     .hero-stats {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .stat { width: 100%; }
@@ -2480,7 +2530,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     }
 
     .hero-product-img {
-        max-width: 320px;
+        display: none;
+        max-width: 260px;
     }
 
     .hx-compare-panel,
@@ -2488,16 +2539,36 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
         padding: var(--space-sm);
     }
 
+    .hero-reference-card h2 {
+        font-size: 1rem;
+    }
+
+    .hero-reference-card p {
+        display: none;
+    }
+
     .hx-compare-header h2 {
         font-size: 1.1rem;
     }
 
     .hx-compare-row {
-        font-size: 0.78rem;
+        font-size: 0.7rem;
+        padding: 0.5rem 0.55rem;
     }
 
     .features-grid, .licenses-grid, .scenes-grid, .resources-grid {
         grid-template-columns: 1fr;
+    }
+
+    .resource-card {
+        padding: var(--space-sm);
+        gap: var(--space-sm);
+    }
+
+    .resource-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 0.66rem;
     }
 
     .ai-transcode-steps {
@@ -2510,6 +2581,18 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     }
 
     .btn { width: 100%; justify-content: center; }
+
+    .hero-cta .btn {
+        width: auto;
+        flex: 1 1 calc(50% - 0.65rem);
+        padding: 0.75rem 0.85rem;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .hero-cta .btn-primary {
+        flex-basis: 100%;
+    }
 }
 
 /* ---------- Print ---------- */
